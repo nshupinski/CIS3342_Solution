@@ -79,6 +79,8 @@
             </asp:DropDownList>
 
         </div>
+        <asp:GridView ID="gvOrderBooks" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+        </asp:GridView>
     </form>
 </body>
 </html>
