@@ -1,0 +1,7 @@
+﻿body {
+    padding: 2%;
+    background-size: cover;
+    background-image: url("../images/pizza-backgroundaspx.jpg");
+    object-fit: cover;
+}
+

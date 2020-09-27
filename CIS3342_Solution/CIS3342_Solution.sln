@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1231
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pizza Builder", "Pizza Builder\Pizza Builder.csproj", "{5EE88083-BE83-4AE3-8439-4FE42C5E5A69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homepage", "Homepage\Homepage.csproj", "{D6D46962-24FB-414A-A832-9227CE0DB5F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bookstore", "Bookstore\Bookstore.csproj", "{8D3421B5-8EA7-47E2-A342-4B0C437E80C4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5EE88083-BE83-4AE3-8439-4FE42C5E5A69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EE88083-BE83-4AE3-8439-4FE42C5E5A69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EE88083-BE83-4AE3-8439-4FE42C5E5A69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EE88083-BE83-4AE3-8439-4FE42C5E5A69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6D46962-24FB-414A-A832-9227CE0DB5F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6D46962-24FB-414A-A832-9227CE0DB5F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6D46962-24FB-414A-A832-9227CE0DB5F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6D46962-24FB-414A-A832-9227CE0DB5F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D3421B5-8EA7-47E2-A342-4B0C437E80C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D3421B5-8EA7-47E2-A342-4B0C437E80C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D3421B5-8EA7-47E2-A342-4B0C437E80C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D3421B5-8EA7-47E2-A342-4B0C437E80C4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2736D9EB-0BA3-40EE-B255-976E7191B0AC}
+	EndGlobalSection
+EndGlobal

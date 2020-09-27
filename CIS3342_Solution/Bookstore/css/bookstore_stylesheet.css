@@ -1,0 +1,15 @@
+﻿body {
+    padding: 2%;
+    background-size: cover;
+    background-image: url("../images/white_background.jpg");
+    object-fit: cover;
+}
+
+.infoSection {
+    margin: 4%;
+}
+
+.campusList {
+    padding: 10px;
+    margin-left: 46%;
+}

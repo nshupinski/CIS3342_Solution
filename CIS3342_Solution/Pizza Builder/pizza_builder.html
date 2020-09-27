@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Pizza Builder</title>
+
+    <link rel="stylesheet" href="CSS/PizzaBuilder_StyleSheet.css">
+    
+
+</head>
+<body>
+
+    <div id="title">
+        <p>
+            Welcome to Crusty Frank's Pizza Emporium
+        </p>
+    </div>
+
+    <div id="formDiv">
+        <form id="pizzaForm" action="pizza.aspx">
+
+            <!--Personal info-->
+            <label>Name</label><br />
+            <input type="text" id="username" name="Username" size="50" /><br />
+
+            <label>Phone Number</label><br />
+            <input type="tel" id="phoneNumber" name="PhoneNumber" size="50" /><br />
+
+            <label>Address</label><br />
+            <input type="text" id="address" name="Address" size="50" /><br /><br /><br />
+
+            <input type="radio" id="pickup" name="PickupOrDeliver" size="50" value="Pickup" checked="checked" /> Pickup <br />
+            <input type="radio" id="deliver" name="PickupOrDeliver" size="50" value="Deliver" /> Deliver <br /><br /><br />
+
+            <!--Pizza info-->
+            <label id="size">Size</label> <label id="crust">Crust</label> <label id="sauce">Sauce</label><br />
+            <select name="PizzaSize">
+                <option id="selectedSize" selected>Select</option>
+                <option id="x-largeSize" value="x-large">Extra-Large</option>
+                <option id="largeSize" value="large">Large</option>
+                <option id="medSize" value="medium">Medium</option>
+                <option id="smallSize" value="small">Small</option>
+            </select>
+
+            <select name="Crust">
+                <option id="selectedCrust" selected>Select</option>
+                <option id="regCrust" value="regular">Regular Crust</option>
+                <option id="stuffedCrust" value="stuffed">Stuffed Crust</option>
+                <option id="deepCrust" value="deepDish">Deep Dish</option>
+                <option id="thinCrust" value="thin">Thin Crust</option>
+                <option id="cheeseCrust" value="cheesyGarlicButter">Cheesy Garlic Butter Crust</option>
+            </select>
+
+            <select name="Sauce">
+                <option id="selectedSauce" selected>Select</option>
+                <option id="tomatoSauce" value="tomato">Tomato Sauce</option>
+                <option id="whiteSauce" value="white">White Sauce</option>
+            </select><br /><br /><br />
+
+            <label><u>Toppings</u></label><br />
+            <input type="checkbox" name="toppings" value="onions" />Onions
+            <input type="checkbox" name="toppings" value="peppers" />Peppers
+            <input type="checkbox" name="toppings" value="broccoli" />Broccoli
+            <br />
+            <input type="checkbox" name="toppings" value="spinach" />Spinach
+            <input type="checkbox" name="toppings" value="pineaple" />Pineapple
+            <input type="checkbox" name="toppings" value="mushrooms" />Mushrooms
+            <br />
+            <input type="checkbox" name="toppings" value="pepperoni" />Pepperoni
+            <input type="checkbox" name="toppings" value="bacon" />Bacon
+            <input type="checkbox" name="toppings" value="sausage" />Sausage
+            <br /><br />
+
+            <label><u>Premium Additions</u></label><br />
+            <input type="checkbox" name="extraCheese" value="yes" />Extra Cheese<br />
+            <input type="checkbox" name="extraMeat" value="yes" />Extra Meat<br />
+            <input type="checkbox" name="extraVeg" value="yes" />Extra Veggies<br />
+            <br /><br />
+
+            <div class="family_meal">
+                <label><u>Make it a Family Meal</u> (Comes with choice of 2 liter soda and a side)</label> <br />
+                <input type="radio" name="familyMeal" id="familyMealYes" value="yes" /> Yes
+                <input type="radio" name="familyMeal" id="familyMealNo" value="no" checked="checked" />No<br /><br />
+                <label id="soda">Soda </label>
+                <label id="sides">Sides</label><br />
+                <select name="soda">
+                    <option id="selectedSoda" selected>Select</option>
+                    <option value="coke">Coke</option>
+                    <option value="pepsi">Pepsi</option>
+                    <option value="sprite">Sprite</option>
+                    <option value="dr.pepper">Dr. Pepper</option>
+                    <option value="gingerAle">Ginger Ale</option>
+                </select>
+                <select name="sides">
+                    <option id="selectedSides" selected>Select</option>
+                    <option value="fries">Fries</option>
+                    <option value="salad">Salad</option>
+                    <option value="wings">Chicken Wings</option>
+                    <option value="garlicBread">Garlic Bread</option>
+                    <option value="mozz">Mozzarella Sticks</option>
+                </select>
+            </div>
+            <br /><br /><br />
+
+            <label>Tip: $</label>
+            <input type="number" id="tip" name="Tip" size="10" value="1" />
+
+            <input type="button" value="Submit" onclick="submitForm()" />
+        </form>
+    </div>
+
+    <script type="text/javascript" src="Pizza_JavaScript.js"></script>
+</body>
+</html>

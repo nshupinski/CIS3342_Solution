@@ -1,0 +1,56 @@
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\Pizza Builder.dll.config
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\Pizza Builder.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\Pizza Builder.pdb
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\csc.exe
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\csc.exe.config
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\csc.rsp
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\csi.exe
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\csi.exe.config
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\csi.rsp
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\System.AppContext.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\System.Console.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\System.IO.Compression.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\System.IO.Pipes.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\System.Security.Claims.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\System.ValueTuple.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\System.Xml.XPath.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\vbc.exe
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\vbc.exe.config
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\vbc.rsp
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\VBCSCompiler.exe
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\obj\Debug\Pizza Builder.csprojAssemblyReference.cache
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\obj\Debug\Pizza Builder.csproj.CoreCompileInputs.cache
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\obj\Debug\Pizza Builder.csproj.CopyComplete
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\obj\Debug\Pizza Builder.dll
+C:\Users\DingDongFootball\source\repos\CIS3342_Solution\Pizza Builder\obj\Debug\Pizza Builder.pdb

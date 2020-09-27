@@ -1,0 +1,55 @@
+﻿body {
+    padding: 2%;
+    background-size: cover;
+    background-image: url("../images/pizza-background.jpg");
+    object-fit: cover;
+}
+
+#formDiv {
+    display: block;
+    position: absolute;
+    top: 55%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin-left: 6%;
+}
+
+#pizzaForm {
+    background-image: url("../images/white_background.jpg");
+    display: inline-block;
+    padding: 2%;
+    vertical-align: central;
+}
+
+
+#title p {
+    margin-top: 10px;
+    color: white;
+    font-size: 5pc;
+    text-align: center;
+    font-family: 'Freestyle Script';
+}
+
+
+#crust {
+    margin-left: 70px;
+}
+
+#sauce {
+    margin-left: 150px;
+}
+
+#sides {
+    margin-left: 60px;
+}
+
+.family_meal {
+    display: inline-block;
+    background-color: lightgrey;
+    padding: 1%;
+}
+
+
+#submit {
+    margin-left: 25%;
+}
