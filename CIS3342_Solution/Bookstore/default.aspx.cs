@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 
 using System.Data;
 using Utilities;
+using System.Collections;
 
 namespace Bookstore
 {
@@ -33,7 +34,21 @@ namespace Bookstore
 
         protected void btnOrder_Clicked(object sender, EventArgs e)
         {
+            ArrayList arrBooks = new ArrayList();
 
+            for (int row = 0; row < gvOrderBooks.Rows.Count; row++)
+            {
+                CheckBox CBox;
+                CBox = (CheckBox)gvOrderBooks.Rows[row].FindControl("chBoxOrder");
+
+                if (CBox.Checked)
+                {
+                    String ISBN = "";
+
+                    ISBN = gvOrderBooks.Rows[row].Cells[3].Text;
+                    arrBooks.Add(ISBN);
+                }
+            }
         }
     }
 }
