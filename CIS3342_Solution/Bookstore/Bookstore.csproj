@@ -69,7 +69,7 @@
   <ItemGroup>
     <Content Include="css\bookstore_stylesheet.css" />
     <Content Include="default.aspx" />
-    <Content Include="images\white_background.jpg" />
+    <Content Include="images\white_brick.jpg" />
     <Content Include="index.html" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -93,6 +93,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BookLibrary\BookLibrary.csproj">
+      <Project>{03d53d5d-774e-4247-a3e5-4fca811927ab}</Project>
+      <Name>BookLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utilities\Utilities.csproj">
       <Project>{57c5a016-a101-4ae5-893b-9a006700050b}</Project>
       <Name>Utilities</Name>

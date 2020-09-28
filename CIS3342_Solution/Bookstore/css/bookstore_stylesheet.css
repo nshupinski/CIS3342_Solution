@@ -1,7 +1,7 @@
 ﻿body {
     padding: 2%;
     background-size: cover;
-    background-image: url("../images/white_background.jpg");
+    background-image: url("../images/white_brick.jpg");
     object-fit: cover;
 }
 
@@ -12,4 +12,16 @@
 .campusList {
     padding: 10px;
     margin-left: 46%;
+}
+
+#gvOrderBooks {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #C0C0C0;
+    padding: 50px;
+}
+
+#gvOrderBooks tr td {
+    padding: 10px;
 }

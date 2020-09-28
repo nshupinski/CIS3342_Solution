@@ -79,7 +79,45 @@
             </asp:DropDownList>
 
         </div>
-        <asp:GridView ID="gvOrderBooks" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+        <asp:GridView ID="gvOrderBooks" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+            <Columns>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:CheckBox ID="chBoxOrder" runat="server" />
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                </asp:TemplateField>
+                <asp:BoundField DataField="Title" HeaderText="Title" />
+                <asp:BoundField DataField="Authors" HeaderText="Authors" />
+                <asp:BoundField DataField="ISBN" HeaderText="ISBN" />
+                <asp:TemplateField AccessibleHeaderText="Book Type" HeaderText="Book Type">
+                    <ItemTemplate>
+                        <asp:DropDownList ID="ddbType" runat="server">
+                            <asp:ListItem>Hard Cover</asp:ListItem>
+                            <asp:ListItem>Paper-Back</asp:ListItem>
+                            <asp:ListItem>e-Book</asp:ListItem>
+                        </asp:DropDownList>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" />
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Rent or Buy">
+                    <ItemTemplate>
+                        <asp:DropDownList ID="ddbRentBuy" runat="server">
+                            <asp:ListItem>Rent</asp:ListItem>
+                            <asp:ListItem>Buy</asp:ListItem>
+                        </asp:DropDownList>
+                    </ItemTemplate>
+                    <ControlStyle Width="60%" />
+                    <ItemStyle HorizontalAlign="Center" Width="8%" />
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Quantity">
+                    <ItemTemplate>
+                        <asp:TextBox ID="txtQuantity" runat="server"></asp:TextBox>
+                    </ItemTemplate>
+                    <ControlStyle Width="80%" />
+                    <ItemStyle HorizontalAlign="Center" Width="6%" />
+                </asp:TemplateField>
+            </Columns>
         </asp:GridView>
     </form>
 </body>
