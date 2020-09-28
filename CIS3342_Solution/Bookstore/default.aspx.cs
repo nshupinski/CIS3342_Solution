@@ -14,16 +14,24 @@ namespace Bookstore
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DBConnect objDB = new DBConnect();
-            DataSet myDS;
-            String strSQL = "SELECT * FROM Books";
+            if (!IsPostBack)
+            {
+                DBConnect objDB = new DBConnect();
+                DataSet myDS;
+                String strSQL = "SELECT * FROM Books";
 
-            myDS = objDB.GetDataSet(strSQL);
-            gvOrderBooks.DataSource = myDS;
-            gvOrderBooks.DataBind();
+                myDS = objDB.GetDataSet(strSQL);
+                gvOrderBooks.DataSource = myDS;
+                gvOrderBooks.DataBind();
+            }
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnOrder_Clicked(object sender, EventArgs e)
         {
 
         }

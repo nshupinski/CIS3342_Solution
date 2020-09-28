@@ -5,23 +5,36 @@
     object-fit: cover;
 }
 
+
 .infoSection {
     margin: 4%;
+    background-color: rgba(180, 180, 180, .8);
+    padding: 20px;
 }
-
 .campusList {
     padding: 10px;
     margin-left: 46%;
+}
+
+
+.formDiv {
+    background-color: rgba(180, 180, 180, .8);
+    padding: 20px;
+    display: inline-block;
 }
 
 #gvOrderBooks {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
-    background-color: #C0C0C0;
     padding: 50px;
+    color: black;
 }
 
 #gvOrderBooks tr td {
     padding: 10px;
+}
+
+#btnOrder {
+    margin-left: 50%;
 }
