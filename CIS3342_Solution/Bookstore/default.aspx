@@ -69,7 +69,7 @@
 
             <!--Campus-->
             <asp:Label class="campusList" runat="server" Text="Campus"></asp:Label><br />
-            <asp:DropDownList  class="campusList" name="campusList" runat="server">
+            <asp:DropDownList ID="campusList" class="campusList" name="campusList" runat="server">
                 <asp:ListItem  value="main">Main </asp:ListItem>
                 <asp:ListItem  value="TUCC">TUCC </asp:ListItem>
                 <asp:ListItem  value="ambler">Ambler </asp:ListItem>
@@ -124,6 +124,8 @@
             <asp:Button ID="btnOrder" CssClass="orderBtn is-centered" runat="server" Text="Place Order" OnClick="btnOrder_Clicked" padding="15" />
 
         </div>
+        <asp:GridView ID="GridView1" runat="server">
+        </asp:GridView>
     </form>
 </body>
 </html>

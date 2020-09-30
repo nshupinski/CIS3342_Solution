@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using Utilities;
 using System.Collections;
+using BookLibrary;
 
 namespace Bookstore
 {
@@ -24,6 +25,7 @@ namespace Bookstore
                 myDS = objDB.GetDataSet(strSQL);
                 gvOrderBooks.DataSource = myDS;
                 gvOrderBooks.DataBind();
+
             }
         }
 
@@ -34,19 +36,45 @@ namespace Bookstore
 
         protected void btnOrder_Clicked(object sender, EventArgs e)
         {
-            ArrayList arrBooks = new ArrayList();
+            string id = txtID.Text;
+            string name = txtName.Text;
+            string address = txtAddress.Text;
+            string phone = txtPhone.Text;
+            string campus = campusList.SelectedItem.Text;
 
-            for (int row = 0; row < gvOrderBooks.Rows.Count; row++)
+            if (id == "" || name == "" || address == "" || phone == "")
             {
-                CheckBox CBox;
-                CBox = (CheckBox)gvOrderBooks.Rows[row].FindControl("chBoxOrder");
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "msg", "alert('Please fill out all of your information')", true);
+            }
+            else
+            {
+                ArrayList arrBooks = new ArrayList();
 
-                if (CBox.Checked)
+                for (int row = 0; row < gvOrderBooks.Rows.Count; row++)
                 {
-                    String ISBN = "";
+                    CheckBox CBox;
+                    CBox = (CheckBox)gvOrderBooks.Rows[row].FindControl("chBoxOrder");
 
-                    ISBN = gvOrderBooks.Rows[row].Cells[3].Text;
-                    arrBooks.Add(ISBN);
+                    if (CBox.Checked)
+                    {
+                        String Title = "";
+                        String Authors = "";
+                        String ISBN = "";
+                        String BookType = "";
+                        String Quantity = "";
+                        String Price = "";
+                        float TotalCost = 0;
+
+                        Book newBook = new Book();
+                        newBook.Title = gvOrderBooks.Rows[row].Cells[1].Text;
+                        newBook.Authors = gvOrderBooks.Rows[row].Cells[2].Text;
+                        newBook.ISBN = gvOrderBooks.Rows[row].Cells[3].Text;
+                        newBook.BookType = gvOrderBooks.Rows[row].Cells[4].Text;
+
+
+                        ISBN = gvOrderBooks.Rows[row].Cells[3].Text;
+                        arrBooks.Add(ISBN);
+                    }
                 }
             }
         }

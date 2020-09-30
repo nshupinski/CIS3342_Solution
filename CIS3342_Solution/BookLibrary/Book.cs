@@ -14,9 +14,6 @@ namespace BookLibrary
         public string BookType;
         public string Quantity;
         public string Price;
-        public string TotalCost;
-
-
-
+        public float TotalCost;
     }
 }
