@@ -14,12 +14,13 @@ namespace Bookstore
 {
     public partial class _default : System.Web.UI.Page
     {
+
+        public DataSet myDS;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 DBConnect objDB = new DBConnect();
-                DataSet myDS;
                 String strSQL = "SELECT * FROM Books";
 
                 myDS = objDB.GetDataSet(strSQL);
@@ -55,27 +56,44 @@ namespace Bookstore
                     CheckBox CBox;
                     CBox = (CheckBox)gvOrderBooks.Rows[row].FindControl("chBoxOrder");
 
+                    // If checked, add book to Arraylist
                     if (CBox.Checked)
                     {
-                        String Title = "";
-                        String Authors = "";
-                        String ISBN = "";
-                        String BookType = "";
-                        String Quantity = "";
-                        String Price = "";
-                        float TotalCost = 0;
-
                         Book newBook = new Book();
+
+                        // Title
                         newBook.Title = gvOrderBooks.Rows[row].Cells[1].Text;
+
+                        // Authors
                         newBook.Authors = gvOrderBooks.Rows[row].Cells[2].Text;
+
+                        // ISBN
                         newBook.ISBN = gvOrderBooks.Rows[row].Cells[3].Text;
-                        newBook.BookType = gvOrderBooks.Rows[row].Cells[4].Text;
 
+                        // Book Type
+                        DropDownList ddlBookType = (DropDownList)gvOrderBooks.Rows[row].FindControl("ddbType");
+                        newBook.BookType = ddlBookType.SelectedValue;
 
-                        ISBN = gvOrderBooks.Rows[row].Cells[3].Text;
-                        arrBooks.Add(ISBN);
+                        // Rent or Buy
+                        DropDownList ddlRentOrBuy = (DropDownList)gvOrderBooks.Rows[row].FindControl("ddbRentBuy");
+                        newBook.RentOrBuy = ddlRentOrBuy.SelectedValue;
+
+                        // Quantity
+                        TextBox txtQuantity = (TextBox)gvOrderBooks.Rows[row].FindControl("txtQuantity");
+                        newBook.Quantity = txtQuantity.Text;
+
+                        // Price
+                        Order newOrder = new BookLibrary.Order();
+                        Order.GetBookPrice();
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "msg", "alert(newBook.Price)", true);
+
+                        // Total Cost
+
+                        arrBooks.Add(newBook);
                     }
                 }
+
+
             }
         }
     }

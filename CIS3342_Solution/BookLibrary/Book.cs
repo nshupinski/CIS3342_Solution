@@ -12,8 +12,9 @@ namespace BookLibrary
         public string Authors;
         public string ISBN;
         public string BookType;
+        public string RentOrBuy;
         public string Quantity;
-        public string Price;
+        public double Price;
         public float TotalCost;
     }
 }
