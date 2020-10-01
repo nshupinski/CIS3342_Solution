@@ -28,12 +28,12 @@ namespace BookLibrary
         public DataSet GetBookPrice()
         {
             DBConnect objDB = new DBConnect();
-            DataSet bookPrice;
+            DataSet myDS;
             String strSQL = "SELECT Price FROM Books WHERE ISBN = " + ISBN;
 
-            bookPrice = objDB.GetDataSet(strSQL);
-
-            return bookPrice;
+            myDS = objDB.GetDataSet(strSQL);
+            
+            return myDS;
         }
     }
 }

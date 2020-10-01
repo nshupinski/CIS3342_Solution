@@ -83,7 +83,8 @@ namespace Bookstore
 
                         // Price
                         Order newOrder = new Order(newBook.ISBN, newBook.BookType, newBook.RentOrBuy, newBook.Quantity, newBook.Price);
-                        Order.GetBookPrice();
+                        DataSet priceDS = newOrder.GetBookPrice();
+                        newBook.Price = Convert.ToDouble(priceDS.Tables[0].Rows[row]["BasePrice"]);
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "msg", "alert(newBook.Price)", true);
 
                         // Total Cost
