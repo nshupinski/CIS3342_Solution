@@ -26,7 +26,6 @@ namespace Bookstore
                 myDS = objDB.GetDataSet(strSQL);
                 gvOrderBooks.DataSource = myDS;
                 gvOrderBooks.DataBind();
-
             }
         }
 
@@ -83,7 +82,7 @@ namespace Bookstore
                         newBook.Quantity = txtQuantity.Text;
 
                         // Price
-                        Order newOrder = new BookLibrary.Order();
+                        Order newOrder = new Order(newBook.ISBN, newBook.BookType, newBook.RentOrBuy, newBook.Quantity, newBook.Price);
                         Order.GetBookPrice();
                         ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "msg", "alert(newBook.Price)", true);
 

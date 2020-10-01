@@ -8,15 +8,22 @@ using Utilities;
 
 namespace BookLibrary
 {
-    class Order
+    public class Order
     {
         public string ISBN;
         public string BookType;
         public string RentOrBuy;
         public string Quantity;
-        public string Price;
-        public float TotalCost;
+        public double Price;
 
+        public Order(string isbn, string bookType, string rentOrBuy, string quantity, double price)
+        {
+            ISBN = isbn;
+            BookType = bookType;
+            RentOrBuy = rentOrBuy;
+            Quantity = quantity;
+            Price = price;
+        }
 
         public DataSet GetBookPrice()
         {
