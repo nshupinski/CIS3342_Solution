@@ -25,6 +25,12 @@ namespace Bookstore
 
                 myDS = objDB.GetDataSet(strSQL);
                 gvOrderBooks.DataSource = myDS;
+
+                String[] basePrices = new String[1];
+                basePrices[0] = "BasePrice";
+                String thing = basePrices[0];
+                gvOrderBooks.DataKeyNames = basePrices;
+
                 gvOrderBooks.DataBind();
             }
         }
@@ -79,15 +85,14 @@ namespace Bookstore
 
                         // Quantity
                         TextBox txtQuantity = (TextBox)gvOrderBooks.Rows[row].FindControl("txtQuantity");
-                        newBook.Quantity = txtQuantity.Text;
+                        newBook.Quantity = Convert.ToInt32(txtQuantity.Text);
 
                         // Price
-                        Order newOrder = new Order(newBook.ISBN, newBook.BookType, newBook.RentOrBuy, newBook.Quantity, newBook.Price);
-                        DataSet priceDS = newOrder.GetBookPrice();
-                        newBook.Price = Convert.ToDouble(priceDS.Tables[0].Rows[row]["BasePrice"]);
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "msg", "alert(newBook.Price)", true);
+=                        newBook.Price = Convert.ToDouble(gvOrderBooks.DataKeys[row].Value);
 
                         // Total Cost
+                        Order newOrder = new Order(newBook.BookType, newBook.RentOrBuy, newBook.Quantity, newBook.Price);
+                        newOrder.CalcTotal();
 
                         arrBooks.Add(newBook);
                     }

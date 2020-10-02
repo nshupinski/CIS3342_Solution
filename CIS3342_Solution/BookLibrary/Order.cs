@@ -6,34 +6,65 @@ using System.Text;
 using System.Threading.Tasks;
 using Utilities;
 
+
 namespace BookLibrary
 {
     public class Order
     {
-        public string ISBN;
+        //public string ISBN;
         public string BookType;
         public string RentOrBuy;
-        public string Quantity;
+        public int Quantity;
         public double Price;
 
-        public Order(string isbn, string bookType, string rentOrBuy, string quantity, double price)
+        public Order(string bookType, string rentOrBuy, int quantity, double price)
         {
-            ISBN = isbn;
             BookType = bookType;
             RentOrBuy = rentOrBuy;
             Quantity = quantity;
             Price = price;
         }
 
-        public DataSet GetBookPrice()
+        public double CalcTotal()
         {
-            DBConnect objDB = new DBConnect();
-            DataSet myDS;
-            String strSQL = "SELECT Price FROM Books WHERE ISBN = " + ISBN;
+            double total;
+            total = Price;
 
-            myDS = objDB.GetDataSet(strSQL);
-            
-            return myDS;
+            total = bookTypePrice(total);
+            total = RentOrBuyPrice(total);
+
+            total = total * Quantity;
+
+            return total;
+        }
+
+
+        public double bookTypePrice(double total)
+        {
+            if (BookType == "Hard Cover")
+            {
+                Price = (Price * .2) + 5;
+            }
+            else if (BookType == "e-Book")
+            {
+                Price = Price - (Price * 0.4);
+            }
+            else
+            {
+                total = Price;
+            }
+
+            return total;
+        }
+
+        public double RentOrBuyPrice(double total)
+        {
+            if (RentOrBuy == "Rent")
+            {
+                total = total - (total * .5);
+            }
+
+            return total;
         }
     }
 }

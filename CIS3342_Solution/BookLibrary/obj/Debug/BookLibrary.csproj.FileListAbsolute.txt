@@ -4,3 +4,6 @@ C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\BookLibrary\ob
 C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\BookLibrary\obj\Debug\BookLibrary.csproj.CoreCompileInputs.cache
 C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\BookLibrary\obj\Debug\BookLibrary.dll
 C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\BookLibrary\obj\Debug\BookLibrary.pdb
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\BookLibrary\bin\Debug\Utilities.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\BookLibrary\bin\Debug\Utilities.pdb
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\BookLibrary\obj\Debug\BookLibrary.csproj.CopyComplete
