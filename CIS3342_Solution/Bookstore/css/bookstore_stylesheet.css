@@ -30,11 +30,20 @@
     padding: 50px;
     color: black;
 }
-
 #gvOrderBooks tr td {
     padding: 10px;
 }
-
 #btnOrder {
     margin-left: 50%;
+}
+
+#gvOrder {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+    color: black;
+}
+#gvOrder tr td {
+    padding: 10px;
 }

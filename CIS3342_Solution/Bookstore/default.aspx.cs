@@ -85,19 +85,22 @@ namespace Bookstore
 
                         // Quantity
                         TextBox txtQuantity = (TextBox)gvOrderBooks.Rows[row].FindControl("txtQuantity");
-                        newBook.Quantity = Convert.ToInt32(txtQuantity.Text);
+                        newBook.Quantity = Convert.ToInt32(txtQuantity.Text);             
+            
 
                         // Price
-=                        newBook.Price = Convert.ToDouble(gvOrderBooks.DataKeys[row].Value);
+                       newBook.Price = Convert.ToDouble(gvOrderBooks.DataKeys[row].Value);
 
                         // Total Cost
                         Order newOrder = new Order(newBook.BookType, newBook.RentOrBuy, newBook.Quantity, newBook.Price);
-                        newOrder.CalcTotal();
+                        newBook.TotalCost = float.Parse(newOrder.CalcTotal().ToString());
 
                         arrBooks.Add(newBook);
                     }
                 }
 
+                gvOrder.DataSource = arrBooks;
+                gvOrder.DataBind();
 
             }
         }

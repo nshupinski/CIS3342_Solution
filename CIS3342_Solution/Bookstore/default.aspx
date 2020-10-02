@@ -124,7 +124,16 @@
             <asp:Button ID="btnOrder" CssClass="orderBtn is-centered" runat="server" Text="Place Order" OnClick="btnOrder_Clicked" padding="15" />
 
         </div>
-        <asp:GridView ID="GridView1" runat="server">
+        <asp:GridView ID="gvOrder" runat="server" AutoGenerateColumns="False">
+            <Columns>
+                <asp:BoundField DataField="title" HeaderText="Title" />
+                <asp:BoundField DataField="isbn" HeaderText="ISBN" />
+                <asp:BoundField DataField="bookType" HeaderText="Book Type" />
+                <asp:BoundField DataField="rentOrBuy" HeaderText="Rent/Buy" />
+                <asp:BoundField DataField="price" DataFormatString="{0:c}" HeaderText="Base Price" />
+                <asp:BoundField DataField="quantity" HeaderText="Quantity" />
+                <asp:BoundField DataField="totalCost" DataFormatString="{0:c}" HeaderText="Total Cost" />
+            </Columns>
         </asp:GridView>
     </form>
 </body>
