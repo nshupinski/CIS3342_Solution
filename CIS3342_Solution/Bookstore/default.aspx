@@ -13,7 +13,7 @@
 
 </head>
 <body>
-
+    <div class="bg">
     <!--Hero-->
     <section class="hero is-primary">
         <div class="hero-body">
@@ -43,115 +43,117 @@
           </div>
         </nav>
 
-
-    <form id="bookForm" runat="server">
-        <div class="infoSection" id="infoSection" runat="server">
-            <div class="columns">
-                <div class="column">
-                    <!--Student ID-->
-                    <asp:Label ID="lblID" runat="server" Text="Student ID"></asp:Label>
-                    <asp:TextBox id="txtID" runat="server" class="input is-rounded" type="text" Placeholder="Student ID"></asp:TextBox>
+    
+        <form id="bookForm" runat="server">
+            <div class="infoSection" id="infoSection" runat="server">
+                <div class="columns">
+                    <div class="column">
+                        <!--Student ID-->
+                        <asp:Label ID="lblID" runat="server" Text="Student ID"></asp:Label>
+                        <asp:TextBox id="txtID" runat="server" class="input is-rounded" type="text" Placeholder="Student ID"></asp:TextBox>
             
-                    <!--Name-->
-                    <asp:Label ID="lblName" runat="server" Text="Name"></asp:Label>
-                    <asp:TextBox id="txtName" runat="server" class="input is-rounded" type="text" Placeholder="Name"></asp:TextBox>
-                </div>
-                <div class="column">
-                    <!--Address-->
-                    <asp:Label ID="lblAddress" runat="server" Text="Address"></asp:Label>
-                    <asp:TextBox id="txtAddress" runat="server" class="input is-rounded" type="text" Placeholder="Address"></asp:TextBox>
+                        <!--Name-->
+                        <asp:Label ID="lblName" runat="server" Text="Name"></asp:Label>
+                        <asp:TextBox id="txtName" runat="server" class="input is-rounded" type="text" Placeholder="Name"></asp:TextBox>
+                    </div>
+                    <div class="column">
+                        <!--Address-->
+                        <asp:Label ID="lblAddress" runat="server" Text="Address"></asp:Label>
+                        <asp:TextBox id="txtAddress" runat="server" class="input is-rounded" type="text" Placeholder="Address"></asp:TextBox>
 
-                    <!--Phone Number-->
-                    <asp:Label ID="lblPhone" runat="server" Text="Phone Number"></asp:Label>
-                    <asp:TextBox id="txtPhone" runat="server" class="input is-rounded" type="text" Placeholder="Phone number"></asp:TextBox>
+                        <!--Phone Number-->
+                        <asp:Label ID="lblPhone" runat="server" Text="Phone Number"></asp:Label>
+                        <asp:TextBox id="txtPhone" runat="server" class="input is-rounded" type="text" Placeholder="Phone number"></asp:TextBox>
+                    </div>
                 </div>
+
+                <!--Campus-->
+                <asp:Label class="campusList" runat="server" Text="Campus"></asp:Label><br />
+                <asp:DropDownList ID="campusList" class="campusList" name="campusList" runat="server">
+                    <asp:ListItem  value="main">Main </asp:ListItem>
+                    <asp:ListItem  value="TUCC">TUCC </asp:ListItem>
+                    <asp:ListItem  value="ambler">Ambler </asp:ListItem>
+                    <asp:ListItem  value="tokyo">Tokyo </asp:ListItem>
+                    <asp:ListItem  value="rome">Rome </asp:ListItem>
+                </asp:DropDownList>
+
             </div>
 
-            <!--Campus-->
-            <asp:Label class="campusList" runat="server" Text="Campus"></asp:Label><br />
-            <asp:DropDownList ID="campusList" class="campusList" name="campusList" runat="server">
-                <asp:ListItem  value="main">Main </asp:ListItem>
-                <asp:ListItem  value="TUCC">TUCC </asp:ListItem>
-                <asp:ListItem  value="ambler">Ambler </asp:ListItem>
-                <asp:ListItem  value="tokyo">Tokyo </asp:ListItem>
-                <asp:ListItem  value="rome">Rome </asp:ListItem>
-            </asp:DropDownList>
+            <div class="formDiv" id="formDiv" runat="server">
+                <asp:GridView ID="gvOrderBooks" class="gvDisplay" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+                    <Columns>
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:CheckBox ID="chBoxOrder" runat="server" />
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                        </asp:TemplateField>
+                        <asp:BoundField DataField="Title" HeaderText="Title" />
+                        <asp:BoundField DataField="Authors" HeaderText="Authors" />
+                        <asp:BoundField DataField="ISBN" HeaderText="ISBN" />
+                        <asp:TemplateField AccessibleHeaderText="Book Type" HeaderText="Book Type">
+                            <ItemTemplate>
+                                <asp:DropDownList ID="ddbType" runat="server">
+                                    <asp:ListItem>Hard Cover</asp:ListItem>
+                                    <asp:ListItem>Paper-Back</asp:ListItem>
+                                    <asp:ListItem>e-Book</asp:ListItem>
+                                </asp:DropDownList>
+                            </ItemTemplate>
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Rent or Buy">
+                            <ItemTemplate>
+                                <asp:DropDownList ID="ddbRentBuy" runat="server">
+                                    <asp:ListItem>Rent</asp:ListItem>
+                                    <asp:ListItem>Buy</asp:ListItem>
+                                </asp:DropDownList>
+                            </ItemTemplate>
+                            <ControlStyle Width="60%" />
+                            <ItemStyle HorizontalAlign="Center" Width="8%" />
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Quantity">
+                            <ItemTemplate>
+                                <asp:TextBox ID="txtQuantity" value="1" runat="server"></asp:TextBox>
+                            </ItemTemplate>
+                            <ControlStyle Width="80%" />
+                            <ItemStyle HorizontalAlign="Center" Width="6%" />
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
 
-        </div>
+                <asp:Button ID="btnOrder" CssClass="orderBtn is-centered" runat="server" Text="Place Order" OnClick="btnOrder_Clicked" padding="15" />
 
-        <div class="formDiv" id="formDiv" runat="server">
-            <asp:GridView ID="gvOrderBooks" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
-                <Columns>
-                    <asp:TemplateField>
-                        <ItemTemplate>
-                            <asp:CheckBox ID="chBoxOrder" runat="server" />
-                        </ItemTemplate>
-                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:TemplateField>
-                    <asp:BoundField DataField="Title" HeaderText="Title" />
-                    <asp:BoundField DataField="Authors" HeaderText="Authors" />
-                    <asp:BoundField DataField="ISBN" HeaderText="ISBN" />
-                    <asp:TemplateField AccessibleHeaderText="Book Type" HeaderText="Book Type">
-                        <ItemTemplate>
-                            <asp:DropDownList ID="ddbType" runat="server">
-                                <asp:ListItem>Hard Cover</asp:ListItem>
-                                <asp:ListItem>Paper-Back</asp:ListItem>
-                                <asp:ListItem>e-Book</asp:ListItem>
-                            </asp:DropDownList>
-                        </ItemTemplate>
-                        <ItemStyle HorizontalAlign="Center" />
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Rent or Buy">
-                        <ItemTemplate>
-                            <asp:DropDownList ID="ddbRentBuy" runat="server">
-                                <asp:ListItem>Rent</asp:ListItem>
-                                <asp:ListItem>Buy</asp:ListItem>
-                            </asp:DropDownList>
-                        </ItemTemplate>
-                        <ControlStyle Width="60%" />
-                        <ItemStyle HorizontalAlign="Center" Width="8%" />
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Quantity">
-                        <ItemTemplate>
-                            <asp:TextBox ID="txtQuantity" value="1" runat="server"></asp:TextBox>
-                        </ItemTemplate>
-                        <ControlStyle Width="80%" />
-                        <ItemStyle HorizontalAlign="Center" Width="6%" />
-                    </asp:TemplateField>
-                </Columns>
-            </asp:GridView>
+            </div>
+            <div id="gvOrderDiv" runat="server">
 
-            <asp:Button ID="btnOrder" CssClass="orderBtn is-centered" runat="server" Text="Place Order" OnClick="btnOrder_Clicked" padding="15" />
+                <asp:Label ID="orderStudentID" runat="server" Visible="false"></asp:Label>
+                <asp:Label ID="orderName" runat="server" Visible="false"></asp:Label>
+                <asp:Label ID="orderAddress" runat="server" Visible="false"></asp:Label>
+                <asp:Label ID="orderPhone" runat="server" Visible="false"></asp:Label>
+                <asp:Label ID="orderCampus" runat="server" Visible="false"></asp:Label>
 
-        </div>
-        <div id="gvOrderDiv" runat="server">
+                <asp:GridView ID="gvOrder" Class="gvDisplay" runat="server" AutoGenerateColumns="False" ShowFooter="True">
+                    <Columns>
+                        <asp:BoundField DataField="title" HeaderText="Title" />
+                        <asp:BoundField DataField="isbn" HeaderText="ISBN" />
+                        <asp:BoundField DataField="bookType" HeaderText="Book Type" />
+                        <asp:BoundField DataField="rentOrBuy" HeaderText="Rent/Buy" />
+                        <asp:BoundField DataField="price" DataFormatString="{0:c}" HeaderText="Base Price" />
+                        <asp:BoundField DataField="quantity" HeaderText="Quantity" />
+                        <asp:BoundField DataField="totalCost" DataFormatString="{0:c}" HeaderText="Total Cost" />
+                    </Columns>
+                </asp:GridView>
 
-            <asp:Label ID="orderStudentID" runat="server" Text="Student ID: " Visible="false"></asp:Label>
-            <asp:Label ID="orderName" runat="server" Text="Name: " Visible="false"></asp:Label>
-            <asp:Label ID="orderAddress" runat="server" Text="Address: " Visible="false"></asp:Label>
-            <asp:Label ID="orderPhone" runat="server" Text="Phone Number: " Visible="false"></asp:Label>
-            <asp:Label ID="orderCampus" runat="server" Text="Campus: " Visible="false"></asp:Label>
-
-            <asp:GridView ID="gvOrder" runat="server" AutoGenerateColumns="False">
-                <Columns>
-                    <asp:BoundField DataField="title" HeaderText="Title" />
-                    <asp:BoundField DataField="isbn" HeaderText="ISBN" />
-                    <asp:BoundField DataField="bookType" HeaderText="Book Type" />
-                    <asp:BoundField DataField="rentOrBuy" HeaderText="Rent/Buy" />
-                    <asp:BoundField DataField="price" DataFormatString="{0:c}" HeaderText="Base Price" />
-                    <asp:BoundField DataField="quantity" HeaderText="Quantity" />
-                    <asp:BoundField DataField="totalCost" DataFormatString="{0:c}" HeaderText="Total Cost" />
-                </Columns>
-            </asp:GridView>
-
-            <asp:GridView ID="gvManagementReport" runat="server" AutoGenerateColumns="False">
-                <Columns>
-                    <asp:BoundField DataField="TotalSales" DataFormatString="{0:c}" HeaderText="Total Sales" />
-                    <asp:BoundField DataField="TotalQuantityRented" HeaderText="Total Quantity Rented" />
-                    <asp:BoundField DataField="TotalQuantitySold" HeaderText="Total Quantity Sold" />
-                </Columns>
-            </asp:GridView>
-        </div>
-    </form>
+                <asp:GridView ID="gvManagementReport" class="gvDisplay" runat="server" AutoGenerateColumns="False" AllowSorting="True">
+                    <Columns>
+                        <asp:BoundField DataField="title" HeaderText="Title" />
+                        <asp:BoundField DataField="TotalSales" DataFormatString="{0:c}" HeaderText="Total Sales" />
+                        <asp:BoundField DataField="TotalQuantityRented" HeaderText="Total Quantity Rented" />
+                        <asp:BoundField DataField="TotalQuantitySold" HeaderText="Total Quantity Sold" />
+                    </Columns>
+                </asp:GridView>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

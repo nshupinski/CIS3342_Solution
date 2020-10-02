@@ -9,6 +9,7 @@ using System.Data;
 using Utilities;
 using System.Collections;
 using BookLibrary;
+using System.Globalization;
 
 namespace Bookstore
 {
@@ -48,6 +49,11 @@ namespace Bookstore
             string phone = txtPhone.Text;
             string campus = campusList.SelectedItem.Text;
 
+            int totalQuantity = 0;
+            double total = 0;
+            int totalQuantityRented = 0;
+            int totalQuantitySold = 0;
+
             if (id == "" || name == "" || address == "" || phone == "")
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "msg", "alert('Please fill out all of your information')", true);
@@ -55,7 +61,7 @@ namespace Bookstore
             else
             {
                 ArrayList arrBooks = new ArrayList();
-
+                
                 for (int row = 0; row < gvOrderBooks.Rows.Count; row++)
                 {
                     CheckBox CBox;
@@ -113,13 +119,25 @@ namespace Bookstore
 
                 // Add footer
                 int count = arrBooks.Count;
-                int totalQuantity = 0;
-                double total = 0;
-
+                
                 for (int i = 0; i < count; i++)
                 {
                     totalQuantity = totalQuantity + int.Parse(gvOrder.Rows[i].Cells[5].Text);
-                    //total = total + double.Parse(gvOrder.Rows[i].Cells[6].Text);
+                    total = total + double.Parse(gvOrder.Rows[i].Cells[6].Text, NumberStyles.Currency);
+
+                    // Get if buy or rent
+                    DropDownList ddlBookType = (DropDownList)gvOrderBooks.Rows[i].FindControl("ddbType");
+                    TextBox txtQuantity = (TextBox)gvOrderBooks.Rows[i].FindControl("txtQuantity");
+                    int quantity = Convert.ToInt32(txtQuantity.Text);
+
+                    if (ddlBookType.SelectedValue == "Rent")
+                    {
+                        totalQuantityRented = totalQuantityRented + quantity;
+                    }
+                    else if (ddlBookType.SelectedValue == "Buy")
+                    {
+                        totalQuantitySold = totalQuantitySold + quantity;
+                    }
                 }
 
                 // Put the values into the corresponding footer column
@@ -137,19 +155,29 @@ namespace Bookstore
 
                 showOrderUserInfo(id, name, address, phone, campus);
             }
+
+            String strSQL = "UPDATE Books SET TotalSales = TotalSales + " + total + ", " +
+                "TotalQuantityRented = TotalQuantityRented + " + totalQuantityRented + ", " +
+                "TotalQuantitySold = TotalQuantitySold + " + totalQuantitySold;
+
+             DBConnect objDB = new DBConnect();
+             objDB.DoUpdate(strSQL);
+
         }
         public void showOrderUserInfo(string id, string name, string address, string phone, string campus)
         {
-            orderStudentID.Text += id + "<br>";
+            orderStudentID.Text = "Student ID: " + id + "<br>";
             orderStudentID.Visible = true;
-            orderName.Text += name + "<br>";
+            orderName.Text = "Name: " + name + "<br>";
             orderName.Visible = true;
-            orderAddress.Text += address + "<br>";
+            orderAddress.Text = "Address: " + address + "<br>";
             orderAddress.Visible = true;
-            orderPhone.Text += phone + "<br>";
+            orderPhone.Text = "Phone Number: " + phone + "<br>";
             orderPhone.Visible = true;
-            orderCampus.Text += campus + "<br>";
+            orderCampus.Text = "Campus: " + campus + "<br>";
             orderCampus.Visible = true;
+
+            gvOrder.Visible = true;
         }
 
         public void btnBookSearch_Clicked(object sender, EventArgs e)
@@ -159,6 +187,10 @@ namespace Bookstore
             orderAddress.Visible = false;
             orderPhone.Visible = false;
             orderCampus.Visible = false;
+
+            gvOrder.Visible = false;
+
+            gvManagementReport.Visible = false;
 
             gvOrderBooks.Visible = true;
             infoSection.Visible = true;
@@ -177,6 +209,19 @@ namespace Bookstore
             gvOrderBooks.Visible = false;
             infoSection.Visible = false;
             formDiv.Visible = false;
-        }        
+
+            gvOrder.Visible = false;
+
+            gvManagementReport.Visible = true;
+
+            // Bind data to Management Report Gridview
+            DBConnect objDB = new DBConnect();
+            String strSQL = "SELECT * FROM Books";
+
+            myDS = objDB.GetDataSet(strSQL);
+            gvManagementReport.DataSource = myDS;
+
+            gvManagementReport.DataBind();
+        }  
     }
 }

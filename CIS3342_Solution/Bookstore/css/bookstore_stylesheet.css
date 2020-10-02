@@ -1,10 +1,13 @@
 ﻿body {
+}
+
+.bg {
     padding: 2%;
     background-size: cover;
     background-image: url("../images/white_brick.jpg");
     object-fit: cover;
+    height: 1400px;
 }
-
 
 .infoSection {
     margin: 4%;
@@ -23,7 +26,7 @@
     display: inline-block;
 }
 
-#gvOrderBooks {
+.gvDisplay {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
@@ -37,13 +40,6 @@
     margin-left: 50%;
 }
 
-#gvOrder {
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 50px;
-    color: black;
-}
 #gvOrderDiv {
     background-color: rgba(180, 180, 180, .8);
     padding: 20px;
