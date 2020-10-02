@@ -84,25 +84,99 @@ namespace Bookstore
                         newBook.RentOrBuy = ddlRentOrBuy.SelectedValue;
 
                         // Quantity
+                        int a;
                         TextBox txtQuantity = (TextBox)gvOrderBooks.Rows[row].FindControl("txtQuantity");
-                        newBook.Quantity = Convert.ToInt32(txtQuantity.Text);             
-            
+                        if (!(Int32.TryParse(txtQuantity.Text, out a)))
+                        {
+                            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "msg", "alert('Please enter a valid quantity')", true);
+                        }
+                        else
+                        {
+                            newBook.Quantity = Convert.ToInt32(txtQuantity.Text);
 
-                        // Price
-                       newBook.Price = Convert.ToDouble(gvOrderBooks.DataKeys[row].Value);
 
-                        // Total Cost
-                        Order newOrder = new Order(newBook.BookType, newBook.RentOrBuy, newBook.Quantity, newBook.Price);
-                        newBook.TotalCost = float.Parse(newOrder.CalcTotal().ToString());
+                            // Price
+                            newBook.Price = Convert.ToDouble(gvOrderBooks.DataKeys[row].Value);
 
-                        arrBooks.Add(newBook);
+                            // Total Cost
+                            Order newOrder = new Order(newBook.BookType, newBook.RentOrBuy, newBook.Quantity, newBook.Price);
+                            newBook.TotalCost = float.Parse(newOrder.CalcTotal().ToString());
+
+                            arrBooks.Add(newBook);
+                        }                       
                     }
                 }
 
+                // Bind Data to Gridview
                 gvOrder.DataSource = arrBooks;
                 gvOrder.DataBind();
 
+                // Add footer
+                int count = arrBooks.Count;
+                int totalQuantity = 0;
+                double total = 0;
+
+                for (int i = 0; i < count; i++)
+                {
+                    totalQuantity = totalQuantity + int.Parse(gvOrder.Rows[i].Cells[5].Text);
+                    //total = total + double.Parse(gvOrder.Rows[i].Cells[6].Text);
+                }
+
+                // Put the values into the corresponding footer column
+                gvOrder.Columns[0].FooterText = "Totals:";
+                gvOrder.Columns[5].FooterText = totalQuantity.ToString();
+                gvOrder.Columns[6].FooterText = total.ToString("0.00");
+
+                // Rebind Gridview with footer
+                gvOrder.DataBind();
+
+                // Hide gvOrderBooks
+                gvOrderBooks.Visible = false;
+                infoSection.Visible = false;
+                formDiv.Visible = false;
+
+                showOrderUserInfo(id, name, address, phone, campus);
             }
         }
+        public void showOrderUserInfo(string id, string name, string address, string phone, string campus)
+        {
+            orderStudentID.Text += id + "<br>";
+            orderStudentID.Visible = true;
+            orderName.Text += name + "<br>";
+            orderName.Visible = true;
+            orderAddress.Text += address + "<br>";
+            orderAddress.Visible = true;
+            orderPhone.Text += phone + "<br>";
+            orderPhone.Visible = true;
+            orderCampus.Text += campus + "<br>";
+            orderCampus.Visible = true;
+        }
+
+        public void btnBookSearch_Clicked(object sender, EventArgs e)
+        {
+            orderStudentID.Visible = false;
+            orderName.Visible = false;
+            orderAddress.Visible = false;
+            orderPhone.Visible = false;
+            orderCampus.Visible = false;
+
+            gvOrderBooks.Visible = true;
+            infoSection.Visible = true;
+            formDiv.Visible = true;
+        }
+
+        public void btnManagement_Clicked(object sender, EventArgs e)
+        {
+            // Hide anything that might be displayed
+            orderStudentID.Visible = false;
+            orderName.Visible = false;
+            orderAddress.Visible = false;
+            orderPhone.Visible = false;
+            orderCampus.Visible = false;
+
+            gvOrderBooks.Visible = false;
+            infoSection.Visible = false;
+            formDiv.Visible = false;
+        }        
     }
 }

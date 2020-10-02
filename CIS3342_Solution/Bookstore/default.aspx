@@ -32,11 +32,11 @@
     <nav class="navbar" role="navigation" aria-label="main navigation">
           <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-              <a class="navbar-item is-centered">
-                Book Search
+              <a class="navbar-item is-centered" onServerClick="btnBookSearch_Clicked" runat="server">      
+                  Book Search
               </a>
 
-              <a class="navbar-item is-centered">
+              <a class="navbar-item is-centered" onServerClick="btnManagement_Clicked" runat="server">
                 Management Report
               </a>
             </div>
@@ -45,7 +45,7 @@
 
 
     <form id="bookForm" runat="server">
-        <div class="infoSection">
+        <div class="infoSection" id="infoSection" runat="server">
             <div class="columns">
                 <div class="column">
                     <!--Student ID-->
@@ -79,7 +79,7 @@
 
         </div>
 
-        <div class="formDiv">
+        <div class="formDiv" id="formDiv" runat="server">
             <asp:GridView ID="gvOrderBooks" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                 <Columns>
                     <asp:TemplateField>
@@ -113,7 +113,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Quantity">
                         <ItemTemplate>
-                            <asp:TextBox ID="txtQuantity" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtQuantity" value="1" runat="server"></asp:TextBox>
                         </ItemTemplate>
                         <ControlStyle Width="80%" />
                         <ItemStyle HorizontalAlign="Center" Width="6%" />
@@ -124,17 +124,34 @@
             <asp:Button ID="btnOrder" CssClass="orderBtn is-centered" runat="server" Text="Place Order" OnClick="btnOrder_Clicked" padding="15" />
 
         </div>
-        <asp:GridView ID="gvOrder" runat="server" AutoGenerateColumns="False">
-            <Columns>
-                <asp:BoundField DataField="title" HeaderText="Title" />
-                <asp:BoundField DataField="isbn" HeaderText="ISBN" />
-                <asp:BoundField DataField="bookType" HeaderText="Book Type" />
-                <asp:BoundField DataField="rentOrBuy" HeaderText="Rent/Buy" />
-                <asp:BoundField DataField="price" DataFormatString="{0:c}" HeaderText="Base Price" />
-                <asp:BoundField DataField="quantity" HeaderText="Quantity" />
-                <asp:BoundField DataField="totalCost" DataFormatString="{0:c}" HeaderText="Total Cost" />
-            </Columns>
-        </asp:GridView>
+        <div id="gvOrderDiv" runat="server">
+
+            <asp:Label ID="orderStudentID" runat="server" Text="Student ID: " Visible="false"></asp:Label>
+            <asp:Label ID="orderName" runat="server" Text="Name: " Visible="false"></asp:Label>
+            <asp:Label ID="orderAddress" runat="server" Text="Address: " Visible="false"></asp:Label>
+            <asp:Label ID="orderPhone" runat="server" Text="Phone Number: " Visible="false"></asp:Label>
+            <asp:Label ID="orderCampus" runat="server" Text="Campus: " Visible="false"></asp:Label>
+
+            <asp:GridView ID="gvOrder" runat="server" AutoGenerateColumns="False">
+                <Columns>
+                    <asp:BoundField DataField="title" HeaderText="Title" />
+                    <asp:BoundField DataField="isbn" HeaderText="ISBN" />
+                    <asp:BoundField DataField="bookType" HeaderText="Book Type" />
+                    <asp:BoundField DataField="rentOrBuy" HeaderText="Rent/Buy" />
+                    <asp:BoundField DataField="price" DataFormatString="{0:c}" HeaderText="Base Price" />
+                    <asp:BoundField DataField="quantity" HeaderText="Quantity" />
+                    <asp:BoundField DataField="totalCost" DataFormatString="{0:c}" HeaderText="Total Cost" />
+                </Columns>
+            </asp:GridView>
+
+            <asp:GridView ID="gvManagementReport" runat="server" AutoGenerateColumns="False">
+                <Columns>
+                    <asp:BoundField DataField="TotalSales" DataFormatString="{0:c}" HeaderText="Total Sales" />
+                    <asp:BoundField DataField="TotalQuantityRented" HeaderText="Total Quantity Rented" />
+                    <asp:BoundField DataField="TotalQuantitySold" HeaderText="Total Quantity Sold" />
+                </Columns>
+            </asp:GridView>
+        </div>
     </form>
 </body>
 </html>

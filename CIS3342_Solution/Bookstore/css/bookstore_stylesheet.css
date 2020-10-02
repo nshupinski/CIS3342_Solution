@@ -44,6 +44,11 @@
     padding: 50px;
     color: black;
 }
+#gvOrderDiv {
+    background-color: rgba(180, 180, 180, .8);
+    padding: 20px;
+}
+
 #gvOrder tr td {
     padding: 10px;
 }
