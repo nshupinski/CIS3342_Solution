@@ -1,15 +1,50 @@
 ﻿body {
+}
+
+.bg {
     padding: 2%;
     background-size: cover;
-    background-image: url("../images/white_background.jpg");
+    background-image: url("../images/white_brick.jpg");
     object-fit: cover;
+    height: 1400px;
 }
 
 .infoSection {
     margin: 4%;
+    background-color: rgba(180, 180, 180, .8);
+    padding: 20px;
 }
-
 .campusList {
     padding: 10px;
     margin-left: 46%;
+}
+
+
+.formDiv {
+    background-color: rgba(180, 180, 180, .8);
+    padding: 20px;
+    display: inline-block;
+}
+
+.gvDisplay {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+    color: black;
+}
+#gvOrderBooks tr td {
+    padding: 10px;
+}
+#btnOrder {
+    margin-left: 50%;
+}
+
+#gvOrderDiv {
+    background-color: rgba(180, 180, 180, .8);
+    padding: 20px;
+}
+
+#gvOrder tr td {
+    padding: 10px;
 }

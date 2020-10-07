@@ -1,0 +1,6 @@
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Utilities\bin\Debug\Utilities.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Utilities\bin\Debug\Utilities.pdb
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Utilities\obj\Debug\Utilities.csprojAssemblyReference.cache
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Utilities\obj\Debug\Utilities.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Utilities\obj\Debug\Utilities.pdb
