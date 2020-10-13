@@ -68,6 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="images\blurredBackground.jpg" />
+    <Content Include="images\cleanHeaderPic.jpg" />
+    <Content Include="images\tableBackground.jpg" />
     <Content Include="Style Sheets\Home Stylesheet.css" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -90,6 +93,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -1,0 +1,56 @@
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\Restaurant Review.dll.config
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\Restaurant Review.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\Restaurant Review.pdb
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\csc.exe
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\csc.exe.config
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\csc.rsp
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\csi.exe
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\csi.exe.config
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\csi.rsp
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\System.AppContext.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\System.Console.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\System.IO.Compression.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\System.IO.Pipes.AccessControl.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\System.IO.Pipes.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\System.Security.AccessControl.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\System.Security.Claims.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\System.Security.Principal.Windows.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\System.ValueTuple.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\System.Xml.XPath.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\vbc.exe
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\vbc.exe.config
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\vbc.rsp
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\VBCSCompiler.exe
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\obj\Debug\Restaurant Review.csprojAssemblyReference.cache
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\obj\Debug\Restaurant Review.csproj.CoreCompileInputs.cache
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\obj\Debug\Restaurant Review.csproj.CopyComplete
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\obj\Debug\Restaurant Review.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\obj\Debug\Restaurant Review.pdb

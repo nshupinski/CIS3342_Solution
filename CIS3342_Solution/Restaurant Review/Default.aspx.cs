@@ -13,5 +13,10 @@ namespace Restaurant_Review
         {
 
         }
+
+        public void logOut()
+        {
+
+        }
     }
 }

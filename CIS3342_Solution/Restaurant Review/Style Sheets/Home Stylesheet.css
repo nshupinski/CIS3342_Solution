@@ -1,3 +1,17 @@
 ﻿body {
-    background-color: lightgrey;
+}
+.bg {
+    padding: 5%;
+    background-image: url("../images/blurredBackground.jpg");
+}
+
+.logo {
+    font-family:'Times New Roman', Times, serif; 
+    border-style: solid;
+}
+
+.imageHeader {
+    background-color: grey;
+    padding: 2%;
+    background-size: auto;
 }
