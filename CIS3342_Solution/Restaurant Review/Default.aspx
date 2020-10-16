@@ -39,6 +39,8 @@
 
             <form id="form1" runat="server">
                 <div>
+                    <asp:GridView ID="gvRestaurants" runat="server">
+                    </asp:GridView>
                 </div>
             </form>
         </div>
