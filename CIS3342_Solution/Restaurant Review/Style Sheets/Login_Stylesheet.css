@@ -1,0 +1,9 @@
+﻿body {
+    padding-left: 35%;
+    padding-right: 35%;
+    padding-top: 15em;
+}
+
+.card-header {
+    background-color: hsl(171, 100%, 41%);
+}
