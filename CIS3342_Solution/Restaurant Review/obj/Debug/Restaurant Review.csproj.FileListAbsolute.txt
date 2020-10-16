@@ -54,3 +54,5 @@ C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Rev
 C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\obj\Debug\Restaurant Review.csproj.CopyComplete
 C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\obj\Debug\Restaurant Review.dll
 C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\obj\Debug\Restaurant Review.pdb
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\Utilities.dll
+C:\Users\bjenk\Documents\GitHub\CIS3342_Solution\CIS3342_Solution\Restaurant Review\bin\Utilities.pdb

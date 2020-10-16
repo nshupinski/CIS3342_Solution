@@ -38,8 +38,22 @@
 
 
             <form id="form1" runat="server">
-                <div>
-                    <asp:GridView ID="gvRestaurants" runat="server">
+                <div class="gvBackground">
+                    <asp:GridView ID="gvRestaurants" runat="server" AutoGenerateColumns="False" HorizontalAlign="Center" BorderColor="Black" BorderStyle="Outset" BorderWidth="0.25em" CellPadding="3">
+                        <Columns>
+                            <asp:ImageField DataImageUrlField="Image" HeaderText="Image">
+                                <ControlStyle Height="100px" Width="150px" />
+                            </asp:ImageField>
+                            <asp:BoundField DataField="Name" HeaderText="Restaurant" >
+                            <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                            </asp:BoundField>
+                            <asp:BoundField DataField="Description" HeaderText="Description" >
+                            <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                            </asp:BoundField>
+                            <asp:BoundField DataField="Category" HeaderText="Category" >
+                            <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                            </asp:BoundField>
+                        </Columns>
                     </asp:GridView>
                 </div>
             </form>

@@ -26,3 +26,19 @@
     background-size: auto;
 }
 
+.gvBackground {
+    background-color: grey;
+    padding: 2em;
+}
+
+#gvRestaurants {
+    color: black;
+}
+
+.gridline tr, .gridline td, .gridline th {
+    border-top: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    border-left: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+} 
+
