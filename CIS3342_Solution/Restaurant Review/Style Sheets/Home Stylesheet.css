@@ -1,7 +1,8 @@
 ﻿body {
 }
 .bg {
-    padding: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
     background-image: url("../images/blurredBackground.jpg");
 }
 
@@ -10,8 +11,18 @@
     border-style: solid;
 }
 
+#title {
+    color: black;
+    font-family: 'Apple Chancery', 'cursive';
+    text-align: center;
+    font-size: 70px;
+    text-decoration: underline;
+}
+
 .imageHeader {
+    position: relative;
     background-color: grey;
     padding: 2%;
     background-size: auto;
 }
+

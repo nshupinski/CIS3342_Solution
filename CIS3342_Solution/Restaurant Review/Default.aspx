@@ -20,7 +20,7 @@
                 </a>
             </div>
             <div class="navbar-end">
-              <a class="navbar-item is-centered" onclick="logOut()" runat="server">      
+              <a class="navbar-item is-centered" onclick="logOut()" href="Login.aspx" runat="server">      
                   Log Out
               </a>
             </div>
@@ -31,6 +31,7 @@
         <div class="bg">
             <div class="MainSection">
                 <div class="imageHeader">
+                     <p id="title">Rusty Spork</p>
                     <img src="images/cleanHeaderPic.jpg" />
                 </div>
             </div>

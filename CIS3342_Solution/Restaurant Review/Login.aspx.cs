@@ -7,16 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Restaurant_Review
 {
-    public partial class Default : System.Web.UI.Page
+    public partial class Login : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
-        }
-
-        public void logOut()
-        {
-            Response.Redirect("Login.aspx");
         }
     }
 }
