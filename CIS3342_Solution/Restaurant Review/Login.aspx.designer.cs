@@ -22,21 +22,48 @@ namespace Restaurant_Review {
         protected global::System.Web.UI.HtmlControls.HtmlForm loginForm;
         
         /// <summary>
-        /// usertypeReviewer control.
+        /// username_input control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton usertypeReviewer;
+        protected global::System.Web.UI.WebControls.TextBox username_input;
         
         /// <summary>
-        /// usertypeRepresentative control.
+        /// rbtn_usertypeReviewer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton usertypeRepresentative;
+        protected global::System.Web.UI.WebControls.RadioButton rbtn_usertypeReviewer;
+        
+        /// <summary>
+        /// rbtn_usertypeRepresentative control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbtn_usertypeRepresentative;
+        
+        /// <summary>
+        /// btnSubmit_login control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSubmit_login;
+        
+        /// <summary>
+        /// btnSubmit_createAccount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSubmit_createAccount;
     }
 }

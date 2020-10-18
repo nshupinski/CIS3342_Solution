@@ -11,6 +11,10 @@
     border-style: solid;
 }
 
+#username_display {
+    margin: auto;
+}
+
 #title {
     color: black;
     font-family: 'Apple Chancery', 'cursive';

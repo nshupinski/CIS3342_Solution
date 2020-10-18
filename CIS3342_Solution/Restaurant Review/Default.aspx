@@ -18,6 +18,7 @@
                 <a class="navbar-item" href="Default.aspx">
                   <p style ="font-family:'Times New Roman', Times, serif; border-style: solid; padding: 5px;">Rusty Spork</p>
                 </a>
+                  <p id="username_display" runat="server"></p>
             </div>
             <div class="navbar-end">
               <a class="navbar-item is-centered" onclick="logOut()" href="Login.aspx" runat="server">      
@@ -53,6 +54,12 @@
                             <asp:BoundField DataField="Category" HeaderText="Category" >
                             <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                             </asp:BoundField>
+                            <asp:TemplateField HeaderText="View">
+                                <ItemTemplate>
+                                    <asp:Button ID="viewRestaurant" runat="server" Text="View" onclick="restaurantView_Clicked"/>
+                                </ItemTemplate>
+                                <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                            </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
                 </div>

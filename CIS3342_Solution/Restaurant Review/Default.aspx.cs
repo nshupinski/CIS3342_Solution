@@ -14,6 +14,10 @@ namespace Restaurant_Review
         public DataSet myDS;
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            // Display usertype
+            username_display.InnerHtml = Session["Username"].ToString();
+
             if (!IsPostBack)
             {
                 DBConnect objDB = new DBConnect();
@@ -33,7 +37,18 @@ namespace Restaurant_Review
 
         public void logOut()
         {
+            Session["Username"] = "";
             Response.Redirect("Login.aspx");
+        }
+
+        protected void restaurantView_Clicked(object sender, EventArgs e)
+        {
+            //Get the button that raised the event
+            Button btn = (Button)sender;
+
+            //Get the row that contains this button
+            GridViewRow gvr = (GridViewRow)btn.NamingContainer;
+
         }
     }
 }

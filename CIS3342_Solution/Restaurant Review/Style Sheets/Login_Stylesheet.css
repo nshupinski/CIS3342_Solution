@@ -1,7 +1,13 @@
 ﻿body {
+    
+}
+
+.bg {
     padding-left: 35%;
     padding-right: 35%;
     padding-top: 15em;
+    background-color: lightgrey;
+    height: 1000px;
 }
 
 .card-header {
