@@ -75,9 +75,11 @@
     <Content Include="Restaurant_Page.aspx" />
     <Content Include="Style Sheets\Home Stylesheet.css" />
     <Content Include="Style Sheets\Login_Stylesheet.css" />
+    <Content Include="Style Sheets\RestaurantPage_Stylesheet.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calculations.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -93,6 +95,7 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Restaurant.cs" />
     <Compile Include="Restaurant_Page.aspx.cs">
       <DependentUpon>Restaurant_Page.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -100,6 +103,8 @@
     <Compile Include="Restaurant_Page.aspx.designer.cs">
       <DependentUpon>Restaurant_Page.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Review.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

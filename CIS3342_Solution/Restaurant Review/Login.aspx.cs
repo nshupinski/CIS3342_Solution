@@ -63,7 +63,7 @@ namespace Restaurant_Review
 
         public void validate_username(DataSet myDS, string username, string selectedType)
         {
-            bool is_valid = false;
+            //bool is_valid = false;
 
             for (int i = 0; i < myDS.Tables[0].Rows.Count; i++)
             { 
@@ -73,7 +73,7 @@ namespace Restaurant_Review
                     {
                         Session.Add("Username", username);
                         Session.Add("Usertype", selectedType);
-                        is_valid = true;
+                        //is_valid = true;
                         Response.Redirect("Default.aspx");
                     }
                     else

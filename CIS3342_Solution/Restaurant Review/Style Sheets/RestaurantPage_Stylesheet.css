@@ -1,0 +1,24 @@
+﻿body {
+}
+
+#username_display {
+    margin: auto;
+}
+
+#mainSection {
+    margin-top: 3em;
+    margin-left: 30%;
+    margin-right: 30%;
+    background-color: grey;
+    padding: 1em;
+}
+
+#restaurantImage {
+    width: 85%;
+    height: 75%;
+    margin: auto;
+}
+
+#restaurantContent {
+    background-color: lightgrey;
+}

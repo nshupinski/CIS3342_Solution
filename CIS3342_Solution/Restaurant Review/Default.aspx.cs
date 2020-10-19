@@ -49,6 +49,8 @@ namespace Restaurant_Review
             //Get the row that contains this button
             GridViewRow gvr = (GridViewRow)btn.NamingContainer;
 
+            string selectedRestaurant = gvRestaurants.Rows[gvr.RowIndex].Cells[1].Text;
+            Response.Redirect("Restaurant_Page.aspx?selectedRestaurant=" + selectedRestaurant);
         }
     }
 }

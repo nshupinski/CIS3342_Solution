@@ -4,31 +4,53 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Restaurant View</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"/>
+    <link rel="stylesheet" href="Style Sheets/RestaurantPage_Stylesheet.css" />
+
 </head>
 <body>
-    <div id="mainSection">
-        <div class="card">
-  <div class="card-image">
-    <figure class="image is-4by3">
-      <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-    </figure>
-  </div>
-  <div class="card-content">
-    <div class="media">
-      <div class="media-content">
-        <p id="title" class="title is-4">John Smith</p>
-        <p id="rep" class="subtitle is-6">Representative: </p>
-      </div>
-    </div>
+    <!--Navbar-->
+    <nav class="navbar is-danger" role="navigation" aria-label="main navigation">
+          <div class="navbar-menu">
+              <div class="navbar-brand">
+                <a class="navbar-item" href="Default.aspx">
+                  <p style ="font-family:'Times New Roman', Times, serif; border-style: solid; padding: 5px;">Rusty Spork</p>
+                </a>
+                  <p id="username_display" runat="server"></p>
+            </div>
+            <div class="navbar-end">
+              <a class="navbar-item is-centered" onclick="logOut()" href="Login.aspx" runat="server">      
+                  Log Out
+              </a>
+            </div>
+          </div>
+        </nav>
 
-    <div class="content">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Phasellus nec iaculis mauris.
-      <br />
-    </div>
-  </div>
-</div>
+   <div id="mainSection">
+        <div class="card">
+            <div class="card-image">
+            <figure class="image is-4by3" >
+                <img id="restaurantImage" src="" alt="Restaurant" runat="server"/>
+            </figure>
+            </div>
+            <div id="restaurantContent">
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-content">
+                        <p id="title" class="title is-4" runat="server"></p>
+                        <p id="rep" class="subtitle is-6" runat="server">Representative: </p>
+                    </div>
+                </div>
+                <div class="content" id="description" runat="server">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Phasellus nec iaculis mauris.
+                </div>
+              <br />
+            </div>
+          </div>
+        </div>
     </div>
 
     <form id="form1" runat="server">
