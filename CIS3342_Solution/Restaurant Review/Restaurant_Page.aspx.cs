@@ -18,6 +18,7 @@ namespace Restaurant_Review
             username_display.InnerHtml = Session["Username"].ToString();
             string restaurantName = Request.QueryString["selectedRestaurant"];
 
+            if (!IsPostBack) { 
             // Get restaurant data from DB
             DBConnect objDB = new DBConnect();
             String strSQL = "SELECT * FROM Restaurant WHERE Name = " + "'" + restaurantName + "'";
@@ -32,7 +33,15 @@ namespace Restaurant_Review
             selectedRestaurant.Image = myDS.Tables[0].Rows[0]["Image"].ToString();
             selectedRestaurant.Representative = myDS.Tables[0].Rows[0]["Representative"].ToString();
 
+            // Get review from DB
+            String strSQL2 = "SELECT * FROM Review WHERE RestaurantName = " + "'" + restaurantName + "'";
+
+            // Set the datasource of the Repeater control and bind the data
+            gvReviews.DataSource = objDB.GetDataSet(strSQL2);
+            gvReviews.DataBind();
+
             displayRestaurantInfo(selectedRestaurant);
+            }
         }
 
         public void displayRestaurantInfo(Restaurant rest)

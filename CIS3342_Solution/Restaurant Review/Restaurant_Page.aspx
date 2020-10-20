@@ -55,6 +55,13 @@
 
     <form id="form1" runat="server">
         <div>
+            <asp:GridView ID="gvReviews" runat="server" AutoGenerateColumns="False" CellPadding="1" HorizontalAlign="Center">
+                <Columns>
+                    <asp:BoundField DataField="ReviewerName" HeaderText="Reviewer" />
+                    <asp:BoundField DataField="RestaurantName" HeaderText="Restaurant" />
+                    <asp:BoundField DataField="Comments" HeaderText="Comments" />
+                </Columns>
+            </asp:GridView>
         </div>
     </form>
 </body>
