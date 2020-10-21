@@ -40,7 +40,7 @@
 
             <form id="form1" runat="server">
                 <div class="gvBackground">
-                    <asp:GridView ID="gvRestaurants" runat="server" AutoGenerateColumns="False" HorizontalAlign="Center" BorderColor="Black" BorderStyle="Outset" BorderWidth="0.25em" CellPadding="3">
+                    <asp:GridView ID="gvRestaurants" runat="server" AutoGenerateColumns="False" HorizontalAlign="Center" BorderColor="Black" BorderStyle="Outset" BorderWidth="0.25em" CellPadding="3" OnSelectedIndexChanged="gvRestaurants_SelectedIndexChanged">
                         <Columns>
                             <asp:ImageField DataImageUrlField="Image" HeaderText="Image">
                                 <ControlStyle Height="100px" Width="150px" />
@@ -49,6 +49,7 @@
                             <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                             </asp:BoundField>
                             <asp:BoundField DataField="Description" HeaderText="Description" >
+                            <ControlStyle Width="2px" />
                             <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                             </asp:BoundField>
                             <asp:BoundField DataField="Category" HeaderText="Category" >

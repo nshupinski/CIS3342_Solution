@@ -23,8 +23,25 @@
     background-color: lightgrey;
 }
 
+#buttonSection {
+    margin-left: 35%;
+    margin-right: 35%;
+    background-color: aquamarine;
+    padding: 1em;
+    border-style: solid;
+}
+    #viewRestaurant {
+        margin: 0 auto;
+        display: block;
+    }
+
 #gvReviews {
     margin-top: 1em;
     margin-left: 20%;
     margin-right: 20%;
+    margin-bottom: 1em;
+}
+
+#reservationModal {
+    margin-top: 3em;
 }

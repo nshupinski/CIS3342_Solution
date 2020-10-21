@@ -52,5 +52,10 @@ namespace Restaurant_Review
             string selectedRestaurant = gvRestaurants.Rows[gvr.RowIndex].Cells[1].Text;
             Response.Redirect("Restaurant_Page.aspx?selectedRestaurant=" + selectedRestaurant);
         }
+
+        protected void gvRestaurants_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

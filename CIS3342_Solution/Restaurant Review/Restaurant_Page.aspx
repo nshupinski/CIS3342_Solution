@@ -55,6 +55,11 @@
 
     <form id="form1" runat="server">
         <div>
+
+            <div id="buttonSection">
+               <asp:Button ID="viewRestaurant" class="button" runat="server" Text="Make A Reservation" onclick="btnReservation_Clicked"/> 
+            </div>
+
             <asp:GridView ID="gvReviews" runat="server" AutoGenerateColumns="False" CellPadding="1" HorizontalAlign="Center">
                 <Columns>
                     <asp:BoundField DataField="ReviewerName" HeaderText="Reviewer" />
@@ -62,7 +67,61 @@
                     <asp:BoundField DataField="Comments" HeaderText="Comments" />
                 </Columns>
             </asp:GridView>
+
+            <!--Reservation Modal -->
+            <div class="modal" id="reservationModal" runat="server">
+              <div class="modal-background"></div>
+                  <div class="modal-card">
+                    <header class="modal-card-head">
+                      <p class="modal-card-title" id="modalTitle" runat="server">Modal title</p>
+                    </header>
+                    <section class="modal-card-body">
+                        <p><asp:TextBox runat="server" id="reservationName_input" class="input is-rounded is-one-third is-centered" type="text"></asp:TextBox></p>
+                        <asp:DropDownList ID="campusList" class="campusList" name="campusList" runat="server">
+                            <asp:ListItem  value="1">1 </asp:ListItem>
+                            <asp:ListItem  value="2">2 </asp:ListItem>
+                            <asp:ListItem  value="3">3 </asp:ListItem>
+                            <asp:ListItem  value="4">4 </asp:ListItem>
+                            <asp:ListItem  value="5">5 </asp:ListItem>
+                            <asp:ListItem  value="6">6 </asp:ListItem>
+                            <asp:ListItem  value="7">7 </asp:ListItem>
+                            <asp:ListItem  value="8">8 </asp:ListItem>
+                            <asp:ListItem  value="9">9 </asp:ListItem>
+                            <asp:ListItem  value="10">10 </asp:ListItem>
+                            <asp:ListItem  value="11">11 </asp:ListItem>
+                            <asp:ListItem  value="12">12 </asp:ListItem>
+                            <asp:ListItem  value="13">13 </asp:ListItem>
+                            <asp:ListItem  value="14">14 </asp:ListItem>
+                            <asp:ListItem  value="15">15 </asp:ListItem>
+                            <asp:ListItem  value="16">16 </asp:ListItem>
+                            <asp:ListItem  value="17">17 </asp:ListItem>
+                            <asp:ListItem  value="18">18 </asp:ListItem>
+                            <asp:ListItem  value="19">19 </asp:ListItem>
+                            <asp:ListItem  value="20">20 </asp:ListItem>
+                            <asp:ListItem  value="21">21 </asp:ListItem>
+                            <asp:ListItem  value="22">22 </asp:ListItem>
+                            <asp:ListItem  value="23">23 </asp:ListItem>
+                            <asp:ListItem  value="24">24 </asp:ListItem>
+                            <asp:ListItem  value="25">25 </asp:ListItem>
+                            <asp:ListItem  value="26">26 </asp:ListItem>
+                            <asp:ListItem  value="27">27 </asp:ListItem>
+                            <asp:ListItem  value="28">28 </asp:ListItem>
+                            <asp:ListItem  value="29">29 </asp:ListItem>
+                            <asp:ListItem  value="30">30 </asp:ListItem>
+                            <asp:ListItem  value="31">31 </asp:ListItem>
+                        </asp:DropDownList>
+                    </section>
+                    <footer class="modal-card-foot">
+                      <button class="button is-success">Save changes</button>
+                      <button class="button">Cancel</button>
+                    </footer>
+                </div>
+            </div>
+
         </div>
     </form>
+
+            
+
 </body>
 </html>

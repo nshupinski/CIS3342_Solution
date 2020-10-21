@@ -41,6 +41,7 @@ namespace Restaurant_Review
             gvReviews.DataBind();
 
             displayRestaurantInfo(selectedRestaurant);
+            displayReservationInfo(selectedRestaurant);
             }
         }
 
@@ -50,6 +51,16 @@ namespace Restaurant_Review
             title.InnerHtml = rest.Name;
             rep.InnerHtml = rep.InnerHtml + rest.Representative;
             description.InnerHtml = rest.Description;
+        }
+
+        public void btnReservation_Clicked(object sender, EventArgs e)
+        {
+            reservationModal.Attributes.Add("style", "display: block");
+        }
+
+        public void displayReservationInfo(Restaurant rest)
+        {
+            modalTitle.InnerHtml = rest.Name;
         }
     }
 }
