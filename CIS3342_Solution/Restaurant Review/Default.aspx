@@ -45,7 +45,7 @@
                             <asp:ImageField DataImageUrlField="Image" HeaderText="Image">
                                 <ControlStyle Height="100px" Width="150px" />
                             </asp:ImageField>
-                            <asp:BoundField DataField="Name" HeaderText="Restaurant" >
+                            <asp:BoundField DataField="RestaurantName" HeaderText="Restaurant" >
                             <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                             </asp:BoundField>
                             <asp:BoundField DataField="Description" HeaderText="Description" >

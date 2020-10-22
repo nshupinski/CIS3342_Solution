@@ -12,6 +12,5 @@ namespace Restaurant_Review
     {
         SqlCommand objCommand = new SqlCommand();
 
-        //DbCommand.CommandType = CommandType.StoredProcedure;
     }
 }

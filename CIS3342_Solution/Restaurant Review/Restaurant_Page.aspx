@@ -76,8 +76,28 @@
                       <p class="modal-card-title" id="modalTitle" runat="server">Modal title</p>
                     </header>
                     <section class="modal-card-body">
+                        <asp:Label ID="lblReservationName" runat="server" Text="Reservation Name"></asp:Label>
                         <p><asp:TextBox runat="server" id="reservationName_input" class="input is-rounded is-one-third is-centered" type="text"></asp:TextBox></p>
-                        <asp:DropDownList ID="campusList" class="campusList" name="campusList" runat="server">
+                        <br />
+                        <asp:Label ID="lblMonth" runat="server" Text="Month"></asp:Label>
+                        <asp:Label ID="lblDay" class="modalSpreadOut" runat="server" Text="Day"></asp:Label>
+                        <asp:Label ID="lblTime" class="modalSpreadOut" runat="server" Text="Time (ex. 7:15)"></asp:Label>
+                        <br />
+                        <asp:DropDownList ID="ddlDateMonth" runat="server">
+                            <asp:ListItem  value="1">1 </asp:ListItem>
+                            <asp:ListItem  value="2">2 </asp:ListItem>
+                            <asp:ListItem  value="3">3 </asp:ListItem>
+                            <asp:ListItem  value="4">4 </asp:ListItem>
+                            <asp:ListItem  value="5">5 </asp:ListItem>
+                            <asp:ListItem  value="6">6 </asp:ListItem>
+                            <asp:ListItem  value="7">7 </asp:ListItem>
+                            <asp:ListItem  value="8">8 </asp:ListItem>
+                            <asp:ListItem  value="9">9 </asp:ListItem>
+                            <asp:ListItem  value="10">10 </asp:ListItem>
+                            <asp:ListItem  value="11">11 </asp:ListItem>
+                            <asp:ListItem  value="12">12 </asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:DropDownList ID="ddlDateDay" class="modalSpreadOut" runat="server">
                             <asp:ListItem  value="1">1 </asp:ListItem>
                             <asp:ListItem  value="2">2 </asp:ListItem>
                             <asp:ListItem  value="3">3 </asp:ListItem>
@@ -110,10 +130,15 @@
                             <asp:ListItem  value="30">30 </asp:ListItem>
                             <asp:ListItem  value="31">31 </asp:ListItem>
                         </asp:DropDownList>
+                        <asp:TextBox id="txtTime" class="modalSpreadOut" runat="server" type="text"></asp:TextBox>
+                        <asp:DropDownList ID="amORpm" runat="server">
+                            <asp:ListItem  value="am">AM</asp:ListItem>
+                            <asp:ListItem  value="pm">PM</asp:ListItem>
+                        </asp:DropDownList>
                     </section>
                     <footer class="modal-card-foot">
-                      <button class="button is-success">Save changes</button>
-                      <button class="button">Cancel</button>
+                      <button class="button is-success" onclick="btnModalSubmit_Clicked">Submit</button>
+                      <button class="button" onclick="btnModalCancel_Clicked">Cancel</button>
                     </footer>
                 </div>
             </div>

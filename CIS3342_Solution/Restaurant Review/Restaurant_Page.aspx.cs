@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,40 +13,43 @@ namespace Restaurant_Review
     public partial class Restaurant_Page : System.Web.UI.Page
     {
         public DataSet myDS;
+        string restaurantName;
+        DBProcedures procedure;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            procedure = new DBProcedures();
+
+            //Check Usertype
             username_display.InnerHtml = Session["Username"].ToString();
-            string restaurantName = Request.QueryString["selectedRestaurant"];
 
-            if (!IsPostBack) { 
-            // Get restaurant data from DB
-            DBConnect objDB = new DBConnect();
-            String strSQL = "SELECT * FROM Restaurant WHERE Name = " + "'" + restaurantName + "'";
-            myDS = objDB.GetDataSet(strSQL);
+            // Get Restaurant Name from HTTP QueryString
+            restaurantName = Request.QueryString["selectedRestaurant"];
 
-            // Get selected restaurant info from DB
-            Restaurant selectedRestaurant = new Restaurant();
-            selectedRestaurant.ID = (int)myDS.Tables[0].Rows[0]["Id"];
-            selectedRestaurant.Name = myDS.Tables[0].Rows[0]["Name"].ToString();
-            selectedRestaurant.Description = myDS.Tables[0].Rows[0]["Description"].ToString();
-            selectedRestaurant.Category = myDS.Tables[0].Rows[0]["Category"].ToString();
-            selectedRestaurant.Image = myDS.Tables[0].Rows[0]["Image"].ToString();
-            selectedRestaurant.Representative = myDS.Tables[0].Rows[0]["Representative"].ToString();
+            // Get Restaurant info from DB
+            if (!IsPostBack)
+            {
+                myDS = procedure.GetRestaurantByName(restaurantName);
 
-            // Get review from DB
-            String strSQL2 = "SELECT * FROM Review WHERE RestaurantName = " + "'" + restaurantName + "'";
+                // Get selected restaurant info from DB
+                Restaurant selectedRestaurant = new Restaurant();
+                selectedRestaurant.ID = (int)myDS.Tables[0].Rows[0]["Restaurant_Id"];
+                selectedRestaurant.Name = myDS.Tables[0].Rows[0]["RestaurantName"].ToString();
+                selectedRestaurant.Description = myDS.Tables[0].Rows[0]["Description"].ToString();
+                selectedRestaurant.Category = myDS.Tables[0].Rows[0]["Category"].ToString();
+                selectedRestaurant.Image = myDS.Tables[0].Rows[0]["Image"].ToString();
+                selectedRestaurant.Representative = myDS.Tables[0].Rows[0]["Representative"].ToString();
 
-            // Set the datasource of the Repeater control and bind the data
-            gvReviews.DataSource = objDB.GetDataSet(strSQL2);
-            gvReviews.DataBind();
+                // Set the datasource of the Repeater control and bind the data
+                gvReviews.DataSource = myDS;
+                gvReviews.DataBind();
 
-            displayRestaurantInfo(selectedRestaurant);
-            displayReservationInfo(selectedRestaurant);
-            }
+                displayRestaurantInfo(selectedRestaurant);
+                displayReservationInfo(selectedRestaurant);
+            }  
         }
 
-        public void displayRestaurantInfo(Restaurant rest)
+        private void displayRestaurantInfo(Restaurant rest)
         {
             restaurantImage.Src = rest.Image;
             title.InnerHtml = rest.Name;
@@ -55,12 +59,26 @@ namespace Restaurant_Review
 
         public void btnReservation_Clicked(object sender, EventArgs e)
         {
-            reservationModal.Attributes.Add("style", "display: block");
+            reservationModal.Attributes["style"] = "display: block";
+        }
+
+        public void btnModalCancel_Clicked(object sender, EventArgs e)
+        {
+            reservationModal.Attributes["style"] = "display: none";
+        }
+
+        public void BtnModalSubmit_Clicked(object sender, EventArgs e)
+        {
+            int reservationMonth = Int32.Parse(ddlDateMonth.SelectedItem.Text);
+            int reservationDay = Int32.Parse(ddlDateDay.SelectedItem.Text);
+            reservationModal.Attributes.Add("style", "display: none");
+
         }
 
         public void displayReservationInfo(Restaurant rest)
         {
             modalTitle.InnerHtml = rest.Name;
         }
+
     }
 }

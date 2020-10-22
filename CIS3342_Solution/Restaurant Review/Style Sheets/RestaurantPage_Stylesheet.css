@@ -42,6 +42,10 @@
     margin-bottom: 1em;
 }
 
-#reservationModal {
+.modal {
     margin-top: 3em;
+}
+
+.modalSpreadOut {
+    margin-left: 2em;
 }

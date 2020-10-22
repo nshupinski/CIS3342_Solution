@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,26 +12,21 @@ namespace Restaurant_Review
 {
     public partial class Default : System.Web.UI.Page
     {
+        string restaurantName;
         public DataSet myDS;
+        public DBProcedures procedures;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            procedures = new DBProcedures();
 
             // Display usertype
             username_display.InnerHtml = Session["Username"].ToString();
 
             if (!IsPostBack)
             {
-                DBConnect objDB = new DBConnect();
-                String strSQL = "SELECT * FROM Restaurant";
-
-                myDS = objDB.GetDataSet(strSQL);
+                myDS = procedures.GetAllRestaurants();
                 gvRestaurants.DataSource = myDS;
-
-                /*String[] basePrices = new String[1];
-                basePrices[0] = "BasePrice";
-                String thing = basePrices[0];
-                gvRestaurants.DataKeyNames = ;*/
-
                 gvRestaurants.DataBind();
             }
         }
