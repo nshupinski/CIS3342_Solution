@@ -22,6 +22,15 @@ namespace Restaurant_Review {
         protected global::System.Web.UI.HtmlControls.HtmlForm loginForm;
         
         /// <summary>
+        /// lblErrors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblErrors;
+        
+        /// <summary>
         /// username_input control.
         /// </summary>
         /// <remarks>

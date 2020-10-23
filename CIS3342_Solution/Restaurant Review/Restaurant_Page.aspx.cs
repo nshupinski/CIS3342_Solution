@@ -59,19 +59,36 @@ namespace Restaurant_Review
 
         public void btnReservation_Clicked(object sender, EventArgs e)
         {
-            reservationModal.Attributes["style"] = "display: block";
+            reservationModal.Style["visibility"] = "visible";
         }
 
         public void btnModalCancel_Clicked(object sender, EventArgs e)
         {
-            reservationModal.Attributes["style"] = "display: none";
+            reservationModal.Style["visibility"] = "hidden";
         }
 
-        public void BtnModalSubmit_Clicked(object sender, EventArgs e)
+        public void btnModalSubmit_Clicked(object sender, EventArgs e)
         {
             int reservationMonth = Int32.Parse(ddlDateMonth.SelectedItem.Text);
             int reservationDay = Int32.Parse(ddlDateDay.SelectedItem.Text);
-            reservationModal.Attributes.Add("style", "display: none");
+            string dayTime = amORpm.SelectedValue;
+            int reservationTime = 0;
+            if (Int32.TryParse(txtTime.Text, out reservationTime))
+            {
+                reservationTime = Int32.Parse(txtTime.Text);
+            }
+            else
+            {
+                lblReservationError.Text = "The time was not input correctly";
+            }
+
+            // Validate
+            if(reservationName_input.Text == "" || txtTime.Text == "")
+            {
+                lblReservationError.Text = "Please input all of the required data";
+            }
+            
+            reservationModal.Style["visibility"] = "hidden";
 
         }
 

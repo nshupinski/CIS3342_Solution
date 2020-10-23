@@ -21,6 +21,7 @@
               </header>
               <div class="card-content">
                 <div class="content">
+                    <asp:Label ID="lblErrors" runat="server" Text=""></asp:Label>
                   <p><asp:TextBox runat="server" id="username_input" class="input is-rounded is-one-third is-centered" type="text" Placeholder="Username"></asp:TextBox></p>
                   <p><asp:RadioButton id="rbtn_usertypeReviewer" Text="Reviewer" GroupName="usertype" runat="server" /></p>
                   <p><asp:RadioButton id="rbtn_usertypeRepresentative" Text="Representative" GroupName="usertype" runat="server" /></p>

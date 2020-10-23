@@ -42,10 +42,16 @@
     margin-bottom: 1em;
 }
 
-.modal {
+#reservationModal {
     margin-top: 3em;
+    display: block;
+    visibility: hidden;
 }
 
 .modalSpreadOut {
     margin-left: 2em;
+}
+
+#lblReservationError {
+    color: red;
 }

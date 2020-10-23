@@ -135,10 +135,11 @@
                             <asp:ListItem  value="am">AM</asp:ListItem>
                             <asp:ListItem  value="pm">PM</asp:ListItem>
                         </asp:DropDownList>
+                        <asp:Label ID="lblReservationError" runat="server" Text=""></asp:Label>
                     </section>
                     <footer class="modal-card-foot">
-                      <button class="button is-success" onclick="btnModalSubmit_Clicked">Submit</button>
-                      <button class="button" onclick="btnModalCancel_Clicked">Cancel</button>
+                      <asp:Button class="button is-success" onclick="btnModalSubmit_Clicked" runat="server" Text="Submit"></asp:Button>
+                      <asp:Button class="button" onclick="btnModalCancel_Clicked" runat="server" Text="Cancel"></asp:Button>
                     </footer>
                 </div>
             </div>

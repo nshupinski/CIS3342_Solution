@@ -13,3 +13,7 @@
 .card-header {
     background-color: hsl(171, 100%, 41%);
 }
+
+#lblErrors {
+    color: red;
+}

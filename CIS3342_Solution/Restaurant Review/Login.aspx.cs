@@ -12,18 +12,16 @@ namespace Restaurant_Review
     public partial class Login : System.Web.UI.Page
     {
         public DataSet myDS;
+        public DBProcedures procedures = new DBProcedures();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-
         protected void btnLogin_Clicked(object sender, EventArgs e)
         {
-            // Get usertype data from DB
-            DBConnect objDB = new DBConnect();
-            String strSQL = "SELECT Username, Type FROM Users";
-            myDS = objDB.GetDataSet(strSQL);
+            myDS = procedures.GetUsername();
 
             // Get selected usertype on login
             string username = username_input.Text;
@@ -63,7 +61,6 @@ namespace Restaurant_Review
 
         public void validate_username(DataSet myDS, string username, string selectedType)
         {
-            //bool is_valid = false;
 
             for (int i = 0; i < myDS.Tables[0].Rows.Count; i++)
             { 
@@ -73,17 +70,16 @@ namespace Restaurant_Review
                     {
                         Session.Add("Username", username);
                         Session.Add("Usertype", selectedType);
-                        //is_valid = true;
                         Response.Redirect("Default.aspx");
                     }
                     else
                     {
-                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "msg", "alert('The user you submitted does not match the selected user type')", true);
+                        lblErrors.Text = "The user you submitted does not match the selected user type";
                     }
                 }
                 else
                 {
-                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "msg", "alert('There are no users with username: '" + username + ")", true);
+                    lblErrors.Text = "There are no users with username: " + username;
                 }
             }
         }

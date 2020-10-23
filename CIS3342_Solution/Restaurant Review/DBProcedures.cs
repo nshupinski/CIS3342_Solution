@@ -37,5 +37,22 @@ namespace Restaurant_Review
 
             return myDS;
         }
+
+        public DataSet GetUsername()
+        {
+            DataSet myDS = new DataSet();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "GetUsername";
+
+            // Execute stored procedure using DBConnect object and the SQLCommand object
+            myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+
+            return myDS;
+        }
+
+        public void AddReservation()
+        {
+
+        }
     }
 }
