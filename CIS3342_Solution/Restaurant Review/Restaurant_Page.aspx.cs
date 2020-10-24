@@ -15,6 +15,7 @@ namespace Restaurant_Review
         public DataSet myDS;
         string restaurantName;
         DBProcedures procedure;
+        Reservation newReservation = new Reservation();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -68,28 +69,32 @@ namespace Restaurant_Review
         }
 
         public void btnModalSubmit_Clicked(object sender, EventArgs e)
-        {
-            int reservationMonth = Int32.Parse(ddlDateMonth.SelectedItem.Text);
-            int reservationDay = Int32.Parse(ddlDateDay.SelectedItem.Text);
-            string dayTime = amORpm.SelectedValue;
-            int reservationTime = 0;
-            if (Int32.TryParse(txtTime.Text, out reservationTime))
-            {
-                reservationTime = Int32.Parse(txtTime.Text);
-            }
-            else
-            {
-                lblReservationError.Text = "The time was not input correctly";
-            }
+        {            
+            string phone = txtPhoneNumber.Text;
+            int partySize = Int32.Parse(numPeople.SelectedValue);
 
-            // Validate
-            if(reservationName_input.Text == "" || txtTime.Text == "")
+            if (validateReservationInput() == true)
             {
-                lblReservationError.Text = "Please input all of the required data";
-            }
-            
-            reservationModal.Style["visibility"] = "hidden";
+                GetReservationDateTime();
+                newReservation.PhoneNumber = phone;
+                newReservation.PartySize = partySize;
+                newReservation.RestaurantName = restaurantName;
+                newReservation.ReservationName = reservationName_input.Text;
 
+                int success = procedure.AddReservation(newReservation.ReservationName, newReservation.RestaurantName, newReservation.Time, newReservation.PhoneNumber, newReservation.PartySize);
+
+                if(!(success == -1))
+                {
+                    lblReservationError.Text = "";
+                    lblReservationSubmitted.Text = "Thank you for making a reservation at " + restaurantName + "!";
+                }
+                else
+                {
+                    lblReservationError.Text = "There was an error when saving your reservation. Please Try again";
+                }
+
+                //reservationModal.Style["visibility"] = "hidden";
+            }
         }
 
         public void displayReservationInfo(Restaurant rest)
@@ -97,5 +102,50 @@ namespace Restaurant_Review
             modalTitle.InnerHtml = rest.Name;
         }
 
+        public void GetReservationDateTime()
+        {
+            int reservationMonth = Int32.Parse(ddlDateMonth.SelectedItem.Text);
+            int reservationDay = Int32.Parse(ddlDateDay.SelectedItem.Text);
+            string dayTime = amORpm.SelectedValue;
+            int reservationTimeHour = 0;
+            int reservationTimeMinute = 0;
+
+            if(validateReservationDateTime(reservationMonth, reservationDay, dayTime, reservationTimeHour, reservationTimeMinute))
+            {
+                reservationTimeHour = Int32.Parse(txtTimeHour.Text);
+                reservationTimeMinute = Int32.Parse(txtTimeMinute.Text);
+
+                string dateTimeString = reservationMonth + "-" + reservationDay + "-" + DateTime.Now.Year + " " + reservationTimeHour + ":" + reservationTimeMinute + " " + dayTime;
+                DateTime newReservationDateTime = DateTime.ParseExact(dateTimeString, "M-d-yyyy H:mm tt", null);
+
+                newReservation.Time = newReservationDateTime;
+            }
+        }
+
+        public bool validateReservationInput()
+        {
+            // Validate
+            if (reservationName_input.Text == "" || txtTimeHour.Text == "" || txtTimeMinute.Text == "" || txtPhoneNumber.Text == "")
+            {
+                lblReservationError.Text = "Please input all of the required data";
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        public bool validateReservationDateTime(int reservationMonth, int reservationDay, string dayTime, int reservationTimeHour, int reservationTimeMinute)
+        {
+            if ((Int32.TryParse(txtTimeHour.Text, out reservationTimeHour)) && (Int32.TryParse(txtTimeMinute.Text, out reservationTimeMinute)))
+            {
+                return true;
+            }
+            else
+            {
+                lblReservationError.Text = "The time was not input correctly";
+                return false;
+            }
+        }
     }
 }

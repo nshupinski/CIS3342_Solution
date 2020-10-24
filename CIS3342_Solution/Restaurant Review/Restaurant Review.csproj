@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="images\blue-background.png" />
     <Content Include="images\blurredBackground.jpg" />
     <Content Include="images\cleanHeaderPic.jpg" />
     <Content Include="images\tableBackground.jpg" />
@@ -96,6 +97,7 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reservation.cs" />
     <Compile Include="Restaurant.cs" />
     <Compile Include="Restaurant_Page.aspx.cs">
       <DependentUpon>Restaurant_Page.aspx</DependentUpon>

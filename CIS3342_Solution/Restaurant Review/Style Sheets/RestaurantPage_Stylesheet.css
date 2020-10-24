@@ -1,4 +1,5 @@
 ﻿body {
+    background-image: url("../images/blue-background.png");
 }
 
 #username_display {
@@ -54,4 +55,8 @@
 
 #lblReservationError {
     color: red;
+}
+
+#lblReservationSubmitted {
+    font-size: x-large;
 }

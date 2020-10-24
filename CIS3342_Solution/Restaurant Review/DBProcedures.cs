@@ -50,8 +50,20 @@ namespace Restaurant_Review
             return myDS;
         }
 
-        public void AddReservation()
+        public int AddReservation(string reservationName, string restaurantName, DateTime time, string phoneNumber, int numOfPeople)
         {
+            DataSet myDS = new DataSet();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "AddReservation";
+            objCommand.Parameters.AddWithValue("@reservationName", reservationName);
+            objCommand.Parameters.AddWithValue("@restaurantName", restaurantName);
+            objCommand.Parameters.AddWithValue("@time", time);
+            objCommand.Parameters.AddWithValue("@phoneNumber", phoneNumber);
+            objCommand.Parameters.AddWithValue("@numOfPeople", numOfPeople);
+
+            // Execute stored procedure using DBConnect object and the SQLCommand object
+            int success = objDB.DoUpdateUsingCmdObj(objCommand);
+            return success;
 
         }
     }
