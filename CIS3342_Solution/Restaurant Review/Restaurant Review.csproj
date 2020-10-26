@@ -77,6 +77,7 @@
     <Content Include="Restaurant_Page.aspx" />
     <Content Include="Style Sheets\Home Stylesheet.css" />
     <Content Include="Style Sheets\Login_Stylesheet.css" />
+    <Content Include="Style Sheets\MyReviews_Stylesheet.css" />
     <Content Include="Style Sheets\RestaurantPage_Stylesheet.css" />
     <Content Include="Web.config" />
   </ItemGroup>

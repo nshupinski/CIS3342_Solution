@@ -174,7 +174,7 @@
                         <br />
                         <asp:Label ID="lblReservationError" runat="server" Text=""></asp:Label>
                         <br /><br />
-                        <asp:Label ID="lblReservationSubmitted" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="lblReservationSubmitted" class="SuccessSubmitted" runat="server" Text=""></asp:Label>
                     </section>
                     <footer class="modal-card-foot">
                       <asp:Button id="btnSubmitReservation" class="button is-success" onclick="btnModalSubmit_Clicked" runat="server" Text="Submit"></asp:Button>
@@ -221,7 +221,7 @@
                             <asp:ListItem  value="5">5</asp:ListItem>
                         </asp:DropDownList>
                         <br />
-                        <asp:Label ID="lblPriceQuality" runat="server" Text="Price"></asp:Label>
+                        <asp:Label ID="lblPriceQuality" runat="server" Text="Price (1-cheap, 5-expensive)"></asp:Label>
                         <asp:DropDownList ID="ddlPriceQuality" runat="server">
                             <asp:ListItem  value="1">1</asp:ListItem>
                             <asp:ListItem  value="2">2</asp:ListItem>
@@ -232,7 +232,10 @@
                         <br /><br />
                         <asp:Label ID="lblComments" runat="server" Text="Comments"></asp:Label>
                         <asp:TextBox id="txtComments" runat="server" type="text"></asp:TextBox>
+                        <br /><br />
+                        <asp:Label ID="lblReviewError" runat="server" Text=""></asp:Label>
                         <br />
+                        <asp:Label ID="lblReviewSubmitted" class="SuccessSubmitted" runat="server" Text=""></asp:Label>
 
                     </section>
                     <footer class="modal-card-foot">

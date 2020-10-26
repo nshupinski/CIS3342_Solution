@@ -69,12 +69,16 @@
     color: red;
 }
 
-#lblReservationSubmitted {
+.SuccessSubmitted {
     font-size: x-large;
 }
 
 #lblReviewHeader {
     display: block;
     font-size:x-large;
+}
+
+#lblReviewError {
+    color: red;
 }
 

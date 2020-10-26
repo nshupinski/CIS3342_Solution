@@ -10,10 +10,10 @@ namespace Restaurant_Review
         public int ID { get; set; }
         public String ReviewerName { get; set; }
         public String RestaurantName { get; set; }
-        public String FoodQuality { get; set; }
-        public String ServiceQuality { get; set; }
-        public String AtmosphereQuality { get; set; }
-        public String PriceQuality { get; set; }
+        public int FoodQuality { get; set; }
+        public int ServiceQuality { get; set; }
+        public int AtmosphereQuality { get; set; }
+        public int PriceQuality { get; set; }
         public String Comment { get; set; }
     }
 }

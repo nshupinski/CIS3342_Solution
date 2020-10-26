@@ -64,7 +64,24 @@ namespace Restaurant_Review
             // Execute stored procedure using DBConnect object and the SQLCommand object
             int success = objDB.DoUpdateUsingCmdObj(objCommand);
             return success;
+        }
 
+        public int AddReview(string reviewerName, string restaurantName, int foodQuality, int serviceQuality, int atmosphereQuality, int priceQuality, string comment)
+        {
+            DataSet myDS = new DataSet();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "AddReview";
+            objCommand.Parameters.AddWithValue("@reviewerName", reviewerName);
+            objCommand.Parameters.AddWithValue("@restaurantName", restaurantName);
+            objCommand.Parameters.AddWithValue("@foodQuality", foodQuality);
+            objCommand.Parameters.AddWithValue("@serviceQuality", serviceQuality);
+            objCommand.Parameters.AddWithValue("@atmosphereQuality", atmosphereQuality);
+            objCommand.Parameters.AddWithValue("@priceQuality", priceQuality);
+            objCommand.Parameters.AddWithValue("@comment", comment);
+
+            // Execute stored procedure using DBConnect object and the SQLCommand object
+            int success = objDB.DoUpdateUsingCmdObj(objCommand);
+            return success;
         }
     }
 }

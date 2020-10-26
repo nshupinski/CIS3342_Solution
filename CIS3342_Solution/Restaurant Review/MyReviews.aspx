@@ -5,6 +5,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>My Reviews</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"/>
+    <link rel="stylesheet" href="Style Sheets/MyReviews_Stylesheet.css" />
+
 </head>
 <body>
     <form id="form1" runat="server">

@@ -174,7 +174,36 @@ namespace Restaurant_Review
 
         public void btnReviewSubmit_Clicked(object sender, EventArgs e)
         {
+            if (txtComments.Text == "")
+            {
+                lblReviewError.Text = "Please leave a comment with your review";
+            }
+            else
+            {
+                lblReviewError.Text = "";
+                Review newReview = new Review();
+                newReview.ReviewerName = Session["Username"].ToString();
+                newReview.RestaurantName = restaurantName;
+                newReview.FoodQuality = Int32.Parse(ddlFoodQuality.SelectedValue);
+                newReview.ServiceQuality = Int32.Parse(ddlServiceQuality.SelectedValue);
+                newReview.AtmosphereQuality = Int32.Parse(ddlAtmosphereQuality.SelectedValue);
+                newReview.PriceQuality = Int32.Parse(ddlPriceQuality.SelectedValue);
+                newReview.Comment = txtComments.Text;
 
+                int success = procedure.AddReview(newReview.ReviewerName, newReview.RestaurantName, 
+                    newReview.FoodQuality, newReview.ServiceQuality, newReview.AtmosphereQuality, 
+                    newReview.PriceQuality, newReview.Comment);
+
+                if (!(success == -1))
+                {
+                    lblReviewError.Text = "";
+                    lblReviewSubmitted.Text = "Thank you for submitting a review for " + restaurantName + "!";
+                }
+                else
+                {
+                    lblReviewError.Text = "There was an error when saving your review. Please Try again";
+                }
+            }
         }
 
         public void btnReviewCancel_Clicked(object sender, EventArgs e)
