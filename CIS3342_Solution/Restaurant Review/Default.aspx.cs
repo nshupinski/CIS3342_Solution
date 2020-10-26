@@ -19,6 +19,7 @@ namespace Restaurant_Review
         protected void Page_Load(object sender, EventArgs e)
         {
             procedures = new DBProcedures();
+            checkUsertype();
 
             // Display usertype
             username_display.InnerHtml = Session["Username"].ToString();
@@ -52,6 +53,16 @@ namespace Restaurant_Review
         protected void gvRestaurants_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        public void checkUsertype()
+        {
+            string usertype = Session["Usertype"].ToString();
+
+            if (usertype == "Reviewer")
+            {
+                btnMyReviews.Style["visibility"] = "visible";
+            }
         }
     }
 }

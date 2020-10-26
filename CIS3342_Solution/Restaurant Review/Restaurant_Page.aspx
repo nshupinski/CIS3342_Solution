@@ -44,8 +44,6 @@
                     </div>
                 </div>
                 <div class="content" id="description" runat="server">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Phasellus nec iaculis mauris.
                 </div>
               <br />
             </div>
@@ -58,13 +56,21 @@
 
             <div id="buttonSection">
                <asp:Button ID="viewRestaurant" class="button" runat="server" Text="Make A Reservation" onclick="btnReservation_Clicked"/> 
+                <br />
+                <asp:Button ID="btnMakeReview" class="button" runat="server" Text="Write A Review" onclick="btnMakeReview_Clicked" Style="visibility: hidden;"/> 
             </div>
 
-            <asp:GridView ID="gvReviews" runat="server" AutoGenerateColumns="False" CellPadding="1" HorizontalAlign="Center">
+            <asp:GridView ID="gvReviews" runat="server" AutoGenerateColumns="False" CellPadding="100" HorizontalAlign="Center" BackColor="#333333" ForeColor="White">
                 <Columns>
-                    <asp:BoundField DataField="ReviewerName" HeaderText="Reviewer" />
-                    <asp:BoundField DataField="RestaurantName" HeaderText="Restaurant" />
-                    <asp:BoundField DataField="Comments" HeaderText="Comments" />
+                    <asp:BoundField DataField="ReviewerName" HeaderText="Reviewer" >
+                    <HeaderStyle ForeColor="#CCCCCC" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="RestaurantName" HeaderText="Restaurant" >
+                    <HeaderStyle ForeColor="#CCCCCC" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="Comments" HeaderText="Comments" >
+                    <HeaderStyle ForeColor="#CCCCCC" />
+                    </asp:BoundField>
                 </Columns>
             </asp:GridView>
 
@@ -177,10 +183,66 @@
                 </div>
             </div>
 
+            <!--Review Modal -->
+            <div class="modal" id="reviewModal" runat="server">
+              <div class="modal-background"></div>
+                  <div class="modal-card">
+                    <header class="modal-card-head">
+                      <p class="modal-card-title" id="reviewModalTitle" runat="server"></p>
+                    </header>
+                    <section class="modal-card-body">
+                        <asp:Label ID="lblReviewHeader" runat="server" Text="Write A Review"></asp:Label>
+                        <br />                      
+                        <br />
+                        <asp:Label ID="lblFoodQuality" runat="server" Text="Food Quality"></asp:Label>
+                        <asp:DropDownList ID="ddlFoodQuality" runat="server">
+                            <asp:ListItem  value="1">1</asp:ListItem>
+                            <asp:ListItem  value="2">2</asp:ListItem>
+                            <asp:ListItem  value="3">3</asp:ListItem>
+                            <asp:ListItem  value="4">4</asp:ListItem>
+                            <asp:ListItem  value="5">5</asp:ListItem>
+                        </asp:DropDownList>
+                        <br />
+                        <asp:Label ID="lblAtmosphereQuality" runat="server" Text="Atmosphere"></asp:Label>
+                        <asp:DropDownList ID="ddlAtmosphereQuality" runat="server">
+                            <asp:ListItem  value="1">1</asp:ListItem>
+                            <asp:ListItem  value="2">2</asp:ListItem>
+                            <asp:ListItem  value="3">3</asp:ListItem>
+                            <asp:ListItem  value="4">4</asp:ListItem>
+                            <asp:ListItem  value="5">5</asp:ListItem>
+                        </asp:DropDownList>
+                        <br />
+                        <asp:Label ID="lblServiceQuality" runat="server" Text="Service"></asp:Label>
+                        <asp:DropDownList ID="ddlServiceQuality" runat="server">
+                            <asp:ListItem  value="1">1</asp:ListItem>
+                            <asp:ListItem  value="2">2</asp:ListItem>
+                            <asp:ListItem  value="3">3</asp:ListItem>
+                            <asp:ListItem  value="4">4</asp:ListItem>
+                            <asp:ListItem  value="5">5</asp:ListItem>
+                        </asp:DropDownList>
+                        <br />
+                        <asp:Label ID="lblPriceQuality" runat="server" Text="Price"></asp:Label>
+                        <asp:DropDownList ID="ddlPriceQuality" runat="server">
+                            <asp:ListItem  value="1">1</asp:ListItem>
+                            <asp:ListItem  value="2">2</asp:ListItem>
+                            <asp:ListItem  value="3">3</asp:ListItem>
+                            <asp:ListItem  value="4">4</asp:ListItem>
+                            <asp:ListItem  value="5">5</asp:ListItem>
+                        </asp:DropDownList>
+                        <br /><br />
+                        <asp:Label ID="lblComments" runat="server" Text="Comments"></asp:Label>
+                        <asp:TextBox id="txtComments" runat="server" type="text"></asp:TextBox>
+                        <br />
+
+                    </section>
+                    <footer class="modal-card-foot">
+                      <asp:Button id="btnReviewSubmit" class="button is-success" onclick="btnReviewSubmit_Clicked" runat="server" Text="Submit"></asp:Button>
+                      <asp:Button id="btnReviewCancel" class="button" onclick="btnReviewCancel_Clicked" runat="server" Text="Cancel"></asp:Button>
+                    </footer>
+                </div>
+            </div>
+
         </div>
     </form>
-
-            
-
 </body>
 </html>

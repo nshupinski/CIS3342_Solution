@@ -14,6 +14,12 @@
 #username_display {
     margin: auto;
 }
+#btnMyReviews {
+    margin: auto;
+    color: white;
+    margin-left: 2em;
+    text-decoration: underline;
+}
 
 #title {
     color: black;

@@ -73,6 +73,7 @@
     <Content Include="images\cleanHeaderPic.jpg" />
     <Content Include="images\tableBackground.jpg" />
     <Content Include="Login.aspx" />
+    <Content Include="MyReviews.aspx" />
     <Content Include="Restaurant_Page.aspx" />
     <Content Include="Style Sheets\Home Stylesheet.css" />
     <Content Include="Style Sheets\Login_Stylesheet.css" />
@@ -95,6 +96,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyReviews.aspx.cs">
+      <DependentUpon>MyReviews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyReviews.aspx.designer.cs">
+      <DependentUpon>MyReviews.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reservation.cs" />

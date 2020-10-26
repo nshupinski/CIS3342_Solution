@@ -5,6 +5,10 @@
 #username_display {
     margin: auto;
 }
+#btnMyReviews {
+    margin: auto;
+    margin-left: 2em;
+}
 
 #mainSection {
     margin-top: 3em;
@@ -35,15 +39,23 @@
         margin: 0 auto;
         display: block;
     }
+    #btnMakeReview {
+        margin: 0 auto;
+        display: block;
+    }
 
 #gvReviews {
     margin-top: 1em;
     margin-left: 20%;
     margin-right: 20%;
-    margin-bottom: 1em;
 }
 
 #reservationModal {
+    margin-top: 3em;
+    display: block;
+    visibility: hidden;
+}
+#reviewModal {
     margin-top: 3em;
     display: block;
     visibility: hidden;
@@ -60,3 +72,9 @@
 #lblReservationSubmitted {
     font-size: x-large;
 }
+
+#lblReviewHeader {
+    display: block;
+    font-size:x-large;
+}
+

@@ -19,6 +19,7 @@
                   <p style ="font-family:'Times New Roman', Times, serif; border-style: solid; padding: 5px;">Rusty Spork</p>
                 </a>
                   <p id="username_display" runat="server"></p>
+                  <a id="btnMyReviews" runat="server" href="MyReviews.aspx" style="visibility: hidden"> My Reviews</a>
             </div>
             <div class="navbar-end">
               <a class="navbar-item is-centered" onclick="logOut()" href="Login.aspx" runat="server">      

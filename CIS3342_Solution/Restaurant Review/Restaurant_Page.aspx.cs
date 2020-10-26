@@ -21,7 +21,9 @@ namespace Restaurant_Review
         {
             procedure = new DBProcedures();
 
-            //Check Usertype
+            checkUsertype();
+
+            //Check Username
             username_display.InnerHtml = Session["Username"].ToString();
 
             // Get Restaurant Name from HTTP QueryString
@@ -47,6 +49,7 @@ namespace Restaurant_Review
 
                 displayRestaurantInfo(selectedRestaurant);
                 displayReservationInfo(selectedRestaurant);
+                displayReviewInfo(selectedRestaurant);
             }  
         }
 
@@ -56,6 +59,16 @@ namespace Restaurant_Review
             title.InnerHtml = rest.Name;
             rep.InnerHtml = rep.InnerHtml + rest.Representative;
             description.InnerHtml = rest.Description;
+        }
+
+        public void displayReservationInfo(Restaurant rest)
+        {
+            modalTitle.InnerHtml = rest.Name;
+        }
+
+        public void displayReviewInfo(Restaurant rest)
+        {
+            reviewModalTitle.InnerHtml = rest.Name;
         }
 
         public void btnReservation_Clicked(object sender, EventArgs e)
@@ -97,11 +110,6 @@ namespace Restaurant_Review
             }
         }
 
-        public void displayReservationInfo(Restaurant rest)
-        {
-            modalTitle.InnerHtml = rest.Name;
-        }
-
         public void GetReservationDateTime()
         {
             int reservationMonth = Int32.Parse(ddlDateMonth.SelectedItem.Text);
@@ -135,6 +143,7 @@ namespace Restaurant_Review
                 return true;
             }
         }
+
         public bool validateReservationDateTime(int reservationMonth, int reservationDay, string dayTime, int reservationTimeHour, int reservationTimeMinute)
         {
             if ((Int32.TryParse(txtTimeHour.Text, out reservationTimeHour)) && (Int32.TryParse(txtTimeMinute.Text, out reservationTimeMinute)))
@@ -146,6 +155,31 @@ namespace Restaurant_Review
                 lblReservationError.Text = "The time was not input correctly";
                 return false;
             }
+        }
+
+        public void checkUsertype()
+        {
+            string usertype = Session["Usertype"].ToString();
+
+            if (usertype == "Reviewer")
+            {
+                btnMakeReview.Style["visibility"] = "visible";
+            }
+        }
+
+        public void btnMakeReview_Clicked(object sender, EventArgs e)
+        {
+            reviewModal.Style["visibility"] = "visible";
+        }
+
+        public void btnReviewSubmit_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        public void btnReviewCancel_Clicked(object sender, EventArgs e)
+        {
+            reviewModal.Style["visibility"] = "hidden";
         }
     }
 }

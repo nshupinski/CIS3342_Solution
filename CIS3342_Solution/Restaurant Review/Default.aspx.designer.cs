@@ -22,6 +22,15 @@ namespace Restaurant_Review {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl username_display;
         
         /// <summary>
+        /// btnMyReviews control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnMyReviews;
+        
+        /// <summary>
         /// form1 control.
         /// </summary>
         /// <remarks>
