@@ -19,6 +19,7 @@
                   <p style ="font-family:'Times New Roman', Times, serif; border-style: solid; padding: 5px;">Rusty Spork</p>
                 </a>
                   <p id="username_display" runat="server"></p>
+                  <a id="btnMyReviews" runat="server" href="MyReviews.aspx" style="visibility: hidden"> My Reviews</a>
             </div>
             <div class="navbar-end">
               <a class="navbar-item is-centered" onclick="logOut()" href="Login.aspx" runat="server">      
@@ -41,6 +42,15 @@
                         <div class="media-content">
                         <p id="title" class="title is-4" runat="server"></p>
                         <p id="rep" class="subtitle is-6" runat="server">Representative: </p>
+                        <br />
+                        <p id="foodRating" runat="server">Food: </p>
+                        <br />
+                        <p id="serviceRating" runat="server">Service: </p>
+                        <br />
+                        <p id="atmosphereRating" runat="server">Atmosphere: </p>
+                        <br />
+                        <p id="priceRating" runat="server">Price (1-Cheap 5-Expensive): </p>
+                        <br />
                     </div>
                 </div>
                 <div class="content" id="description" runat="server">

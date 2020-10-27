@@ -14,20 +14,19 @@ namespace Restaurant_Review
     {
         public DataSet myDS;
         string restaurantName;
-        DBProcedures procedure;
+        DBProcedures procedure = new DBProcedures();
         Reservation newReservation = new Reservation();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            procedure = new DBProcedures();
-
             checkUsertype();
 
             //Check Username
             username_display.InnerHtml = Session["Username"].ToString();
 
+            restaurantName = Session["selectedRestaurant"].ToString();
             // Get Restaurant Name from HTTP QueryString
-            restaurantName = Request.QueryString["selectedRestaurant"];
+            //restaurantName = Request.QueryString["selectedRestaurant"];
 
             // Get Restaurant info from DB
             if (!IsPostBack)
@@ -50,6 +49,7 @@ namespace Restaurant_Review
                 displayRestaurantInfo(selectedRestaurant);
                 displayReservationInfo(selectedRestaurant);
                 displayReviewInfo(selectedRestaurant);
+                showRestaurantRatings();
             }  
         }
 
@@ -105,8 +105,6 @@ namespace Restaurant_Review
                 {
                     lblReservationError.Text = "There was an error when saving your reservation. Please Try again";
                 }
-
-                //reservationModal.Style["visibility"] = "hidden";
             }
         }
 
@@ -163,6 +161,7 @@ namespace Restaurant_Review
 
             if (usertype == "Reviewer")
             {
+                btnMyReviews.Style["visibility"] = "visible";
                 btnMakeReview.Style["visibility"] = "visible";
             }
         }
@@ -209,6 +208,32 @@ namespace Restaurant_Review
         public void btnReviewCancel_Clicked(object sender, EventArgs e)
         {
             reviewModal.Style["visibility"] = "hidden";
+        }
+
+        public void showRestaurantRatings()
+        {
+            double foodAverage = 0;
+            double serviceAverage = 0;
+            double atmosphereAverage = 0;
+            double priceAverage = 0;
+
+            for(int i=0; i<myDS.Tables[0].Rows.Count; i++)
+            {
+                foodAverage += Int32.Parse(myDS.Tables[0].Rows[i]["FoodQuality"].ToString());
+                serviceAverage += Int32.Parse(myDS.Tables[0].Rows[i]["Service"].ToString());
+                atmosphereAverage += Int32.Parse(myDS.Tables[0].Rows[i]["Atmosphere"].ToString());
+                priceAverage += Int32.Parse(myDS.Tables[0].Rows[i]["PriceRating"].ToString());
+            }
+
+            foodAverage = Math.Round((foodAverage/myDS.Tables[0].Rows.Count), 2);
+            serviceAverage = Math.Round((serviceAverage / myDS.Tables[0].Rows.Count), 2);
+            atmosphereAverage = Math.Round((atmosphereAverage / myDS.Tables[0].Rows.Count), 2);
+            priceAverage = Math.Round((priceAverage / myDS.Tables[0].Rows.Count), 2);
+
+            foodRating.InnerHtml = foodRating.InnerHtml + foodAverage;
+            serviceRating.InnerHtml = serviceRating.InnerHtml + serviceAverage;
+            atmosphereRating.InnerHtml = atmosphereRating.InnerHtml + atmosphereAverage;
+            priceRating.InnerHtml = priceRating.InnerHtml + priceAverage;
         }
     }
 }

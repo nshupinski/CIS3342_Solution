@@ -83,5 +83,32 @@ namespace Restaurant_Review
             int success = objDB.DoUpdateUsingCmdObj(objCommand);
             return success;
         }
+
+        public DataSet GetReviewsByUsername(string username)
+        {
+            DataSet myDS = new DataSet();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "GetReviewsByUsername";
+            objCommand.Parameters.AddWithValue("@username", username);
+
+            // Execute stored procedure using DBConnect object and the SQLCommand object
+            myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+
+            return myDS;
+        }
+
+        public int AddUser(string RealName, string UserName, string UserType)
+        {
+            DataSet myDS = new DataSet();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "AddReview";
+            objCommand.Parameters.AddWithValue("@RealName", RealName);
+            objCommand.Parameters.AddWithValue("@UserName", UserName);
+            objCommand.Parameters.AddWithValue("@UserType", UserType);
+
+            // Execute stored procedure using DBConnect object and the SQLCommand object
+            int success = objDB.DoUpdateUsingCmdObj(objCommand);
+            return success;
+        }
     }
 }

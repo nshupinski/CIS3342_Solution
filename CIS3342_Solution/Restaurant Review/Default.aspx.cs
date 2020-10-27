@@ -47,7 +47,8 @@ namespace Restaurant_Review
             GridViewRow gvr = (GridViewRow)btn.NamingContainer;
 
             string selectedRestaurant = gvRestaurants.Rows[gvr.RowIndex].Cells[1].Text;
-            Response.Redirect("Restaurant_Page.aspx?selectedRestaurant=" + selectedRestaurant);
+            Session.Add("selectedRestaurant", selectedRestaurant);
+            Response.Redirect("Restaurant_Page.aspx");
         }
 
         protected void gvRestaurants_SelectedIndexChanged(object sender, EventArgs e)

@@ -33,7 +33,7 @@ namespace Restaurant_Review
 
         protected void btnCreateAccount_Clicked(object sender, EventArgs e)
         {
-
+            Response.Redirect("CreateAccount.aspx");
         }
 
         public string get_usertype()

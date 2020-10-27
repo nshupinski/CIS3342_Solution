@@ -22,6 +22,15 @@ namespace Restaurant_Review {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl username_display;
         
         /// <summary>
+        /// btnMyReviews control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnMyReviews;
+        
+        /// <summary>
         /// restaurantImage control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,42 @@ namespace Restaurant_Review {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl rep;
+        
+        /// <summary>
+        /// foodRating control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl foodRating;
+        
+        /// <summary>
+        /// serviceRating control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl serviceRating;
+        
+        /// <summary>
+        /// atmosphereRating control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl atmosphereRating;
+        
+        /// <summary>
+        /// priceRating control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl priceRating;
         
         /// <summary>
         /// description control.
