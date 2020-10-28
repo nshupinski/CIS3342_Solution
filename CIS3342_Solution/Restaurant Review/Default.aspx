@@ -36,6 +36,7 @@
                      <p id="title">Rusty Spork</p>
                     <img src="images/cleanHeaderPic.jpg" />
                 </div>
+                <asp:Button ID="btnAddRestaurant" class="button" runat="server" Text="Add Restaurant" onclick="btnAddRestaurant_Clicked"/> 
             </div>
 
 
@@ -67,6 +68,76 @@
                 </div>
             </form>
         </div>
+
+        <!--New Restaurant Modal -->
+            <div class="modal" id="restaurantModal" runat="server">
+              <div class="modal-background"></div>
+                  <div class="modal-card">
+                    <header class="modal-card-head">
+                      <p class="modal-card-title" id="restaurantModalTitle" runat="server"></p>
+                    </header>
+                    <section class="modal-card-body">
+                        <asp:Label ID="lblReviewHeader" runat="server" Text="Add A New Restaurant"></asp:Label>
+                        <br />  
+                        <asp:Label ID="lblRestaurantName" runat="server" Text="Restaurant Name"></asp:Label>
+                        <p><asp:TextBox runat="server" id="restaurantName_input" class="input is-rounded is-one-third is-centered" type="text"></asp:TextBox></p>
+                        <br />
+                        <asp:Label ID="lblDescription" runat="server" Text="Description"></asp:Label>
+                        <p><asp:TextBox runat="server" id="description_input" class="input is-rounded is-one-third is-centered" type="text"></asp:TextBox></p>
+                        <br />
+                        <asp:Label ID="lblImage" runat="server" Text="Image URL"></asp:Label>
+                        <p><asp:TextBox runat="server" id="image_input" class="input is-rounded is-one-third is-centered" type="text"></asp:TextBox></p>
+                        <br /><br />
+                        <asp:Label ID="lblFoodQuality" runat="server" Text="Food Quality"></asp:Label>
+                        <asp:DropDownList ID="ddlFoodQuality" runat="server">
+                            <asp:ListItem  value="1">1</asp:ListItem>
+                            <asp:ListItem  value="2">2</asp:ListItem>
+                            <asp:ListItem  value="3">3</asp:ListItem>
+                            <asp:ListItem  value="4">4</asp:ListItem>
+                            <asp:ListItem  value="5">5</asp:ListItem>
+                        </asp:DropDownList>
+                        <br />
+                        <asp:Label ID="lblAtmosphereQuality" runat="server" Text="Atmosphere"></asp:Label>
+                        <asp:DropDownList ID="ddlAtmosphereQuality" runat="server">
+                            <asp:ListItem  value="1">1</asp:ListItem>
+                            <asp:ListItem  value="2">2</asp:ListItem>
+                            <asp:ListItem  value="3">3</asp:ListItem>
+                            <asp:ListItem  value="4">4</asp:ListItem>
+                            <asp:ListItem  value="5">5</asp:ListItem>
+                        </asp:DropDownList>
+                        <br />
+                        <asp:Label ID="lblServiceQuality" runat="server" Text="Service"></asp:Label>
+                        <asp:DropDownList ID="ddlServiceQuality" runat="server">
+                            <asp:ListItem  value="1">1</asp:ListItem>
+                            <asp:ListItem  value="2">2</asp:ListItem>
+                            <asp:ListItem  value="3">3</asp:ListItem>
+                            <asp:ListItem  value="4">4</asp:ListItem>
+                            <asp:ListItem  value="5">5</asp:ListItem>
+                        </asp:DropDownList>
+                        <br />
+                        <asp:Label ID="lblPriceQuality" runat="server" Text="Price (1-cheap, 5-expensive)"></asp:Label>
+                        <asp:DropDownList ID="ddlPriceQuality" runat="server">
+                            <asp:ListItem  value="1">1</asp:ListItem>
+                            <asp:ListItem  value="2">2</asp:ListItem>
+                            <asp:ListItem  value="3">3</asp:ListItem>
+                            <asp:ListItem  value="4">4</asp:ListItem>
+                            <asp:ListItem  value="5">5</asp:ListItem>
+                        </asp:DropDownList>
+                        <br /><br />
+                        <asp:Label ID="lblComments" runat="server" Text="Comments"></asp:Label>
+                        <asp:TextBox id="txtComments" runat="server" type="text"></asp:TextBox>
+                        <br /><br />
+                        <asp:Label ID="lblReviewError" runat="server" Text=""></asp:Label>
+                        <br />
+                        <asp:Label ID="lblReviewSubmitted" class="SuccessSubmitted" runat="server" Text=""></asp:Label>
+
+                    </section>
+                    <footer class="modal-card-foot">
+                      <asp:Button id="btnReviewSubmit" class="button is-success" onclick="btnReviewSubmit_Clicked" runat="server" Text="Submit"></asp:Button>
+                      <asp:Button id="btnReviewCancel" class="button" onclick="btnReviewCancel_Clicked" runat="server" Text="Cancel"></asp:Button>
+                    </footer>
+                </div>
+            </div>
 
     </body>
 </html>

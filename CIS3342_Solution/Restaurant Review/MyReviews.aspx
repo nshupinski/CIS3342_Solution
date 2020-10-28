@@ -32,14 +32,16 @@
 
     <form id="form1" runat="server">
         <div class="gvBackground">
-            <asp:GridView ID="gvMyReviews" runat="server" AutoGenerateColumns="False">
+            <asp:GridView ID="gvMyReviews" runat="server" AutoGenerateColumns="False" OnRowCancelingEdit="gvMyReviews_RowCancelingEdit" OnRowEditing="gvMyReviews_RowEditing" OnRowUpdating="gvMyReviews_RowUpdating">
                 <Columns>
-                    <asp:BoundField DataField="RestaurantName" HeaderText="Restaurant" />
+                    <asp:BoundField DataField="Review_Id" HeaderText="Review ID" ReadOnly="True" />
+                    <asp:BoundField DataField="RestaurantName" HeaderText="Restaurant" ReadOnly="True" />
                     <asp:BoundField DataField="FoodQuality" HeaderText="Food Rating" />
                     <asp:BoundField DataField="Service" HeaderText="Service Rating" />
                     <asp:BoundField DataField="Atmosphere" HeaderText="Atmosphere Rating" />
                     <asp:BoundField DataField="PriceRating" HeaderText="Price Rating" />
                     <asp:BoundField DataField="Comments" HeaderText="Comments" />
+                    <asp:CommandField ButtonType="Button" HeaderText="Edit Review" ShowEditButton="True" />
                 </Columns>
             </asp:GridView>
         </div>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -39,13 +40,45 @@ namespace Restaurant_Review
                 newUser.RealName = realName_input.Text;
                 newUser.UserName = username_input.Text;
 
-                int success = procedure.AddUser(newUser.RealName, newUser.UserName, newUser.UserType);
+                if (is_ValidUsername(newUser.UserName)) {
+                    int success = procedure.AddUser(newUser.RealName, newUser.UserName, newUser.UserType);
 
-                if(!(success == -1))
+                    if (!(success == -1))
+                    {
+                        lblErrors.Text = "";
+                        Session.Add("Username", newUser.UserName);
+                        Session.Add("Usertype", newUser.UserType);
+                        Response.Redirect("Default.aspx");
+                    }
+                    else
+                    {
+                        lblErrors.Text = "There was an error creating your account. Please try again.";
+                    }
+                }
+                else
                 {
-
+                    lblErrors.Text = "That username already exists";
                 }
             }
+        }
+
+        public bool is_ValidUsername(string username)
+        {
+            DataSet myDS = procedure.GetAllUsers();
+            bool is_valid = false;
+
+            for (int i=0; i<myDS.Tables[0].Rows.Count; i++)
+            {
+                if (username == myDS.Tables[0].Rows[i]["Username"].ToString())
+                {
+                    is_valid = false;
+                }
+                else
+                {
+                    is_valid = true;
+                }
+            }
+            return is_valid;
         }
     }
 }

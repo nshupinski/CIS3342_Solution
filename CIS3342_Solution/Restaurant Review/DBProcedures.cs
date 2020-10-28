@@ -101,7 +101,7 @@ namespace Restaurant_Review
         {
             DataSet myDS = new DataSet();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "AddReview";
+            objCommand.CommandText = "AddUser";
             objCommand.Parameters.AddWithValue("@RealName", RealName);
             objCommand.Parameters.AddWithValue("@UserName", UserName);
             objCommand.Parameters.AddWithValue("@UserType", UserType);
@@ -109,6 +109,33 @@ namespace Restaurant_Review
             // Execute stored procedure using DBConnect object and the SQLCommand object
             int success = objDB.DoUpdateUsingCmdObj(objCommand);
             return success;
+        }
+
+        public DataSet GetAllUsers()
+        {
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "GetUsername";
+
+            // Execute stored procedure using DBConnect object and the SQLCommand object
+            myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+
+            return myDS;
+        }
+
+        public void UpdateReviewById(int reviewId, int foodRating, int serviceRating, int atmosphereRating, int priceRating, string comment)
+        {
+            DataSet myDS = new DataSet();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "UpdateReviewById";
+            objCommand.Parameters.AddWithValue("@reviewId", reviewId);
+            objCommand.Parameters.AddWithValue("@foodRating", foodRating);
+            objCommand.Parameters.AddWithValue("@serviceRating", serviceRating);
+            objCommand.Parameters.AddWithValue("@atmosphereRating", atmosphereRating);
+            objCommand.Parameters.AddWithValue("@priceRating", priceRating);
+            objCommand.Parameters.AddWithValue("@comment", comment);
+
+            // Execute stored procedure using DBConnect object and the SQLCommand object
+            objDB.DoUpdateUsingCmdObj(objCommand);
         }
     }
 }
