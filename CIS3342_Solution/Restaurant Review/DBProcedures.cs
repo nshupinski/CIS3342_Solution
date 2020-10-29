@@ -28,6 +28,7 @@ namespace Restaurant_Review
         public DataSet GetRestaurantByName(string restaurantName)
         {
             DataSet myDS = new DataSet();
+            SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "GetRestaurantByName";
             objCommand.Parameters.AddWithValue("@restaurantName", restaurantName);
@@ -41,6 +42,7 @@ namespace Restaurant_Review
         public DataSet GetUsername()
         {
             DataSet myDS = new DataSet();
+            SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "GetUsername";
 
@@ -53,6 +55,7 @@ namespace Restaurant_Review
         public int AddReservation(string reservationName, string restaurantName, DateTime time, string phoneNumber, int numOfPeople)
         {
             DataSet myDS = new DataSet();
+            SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "AddReservation";
             objCommand.Parameters.AddWithValue("@reservationName", reservationName);
@@ -69,6 +72,7 @@ namespace Restaurant_Review
         public int AddReview(string reviewerName, string restaurantName, int foodQuality, int serviceQuality, int atmosphereQuality, int priceQuality, string comment)
         {
             DataSet myDS = new DataSet();
+            SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "AddReview";
             objCommand.Parameters.AddWithValue("@reviewerName", reviewerName);
@@ -87,6 +91,7 @@ namespace Restaurant_Review
         public DataSet GetReviewsByUsername(string username)
         {
             DataSet myDS = new DataSet();
+            SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "GetReviewsByUsername";
             objCommand.Parameters.AddWithValue("@username", username);
@@ -97,9 +102,24 @@ namespace Restaurant_Review
             return myDS;
         }
 
+        public DataSet GetReviewsByRestaurantName(string restaurantName)
+        {
+            DataSet myDS = new DataSet();
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "GetReviewsByRestaurantName";
+            objCommand.Parameters.AddWithValue("@restaurantName", restaurantName);
+
+            // Execute stored procedure using DBConnect object and the SQLCommand object
+            myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+
+            return myDS;
+        }
+
         public int AddUser(string RealName, string UserName, string UserType)
         {
             DataSet myDS = new DataSet();
+            SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "AddUser";
             objCommand.Parameters.AddWithValue("@RealName", RealName);
@@ -125,6 +145,7 @@ namespace Restaurant_Review
         public void UpdateReviewById(int reviewId, int foodRating, int serviceRating, int atmosphereRating, int priceRating, string comment)
         {
             DataSet myDS = new DataSet();
+            SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "UpdateReviewById";
             objCommand.Parameters.AddWithValue("@reviewId", reviewId);
@@ -136,6 +157,23 @@ namespace Restaurant_Review
 
             // Execute stored procedure using DBConnect object and the SQLCommand object
             objDB.DoUpdateUsingCmdObj(objCommand);
+        }
+
+        public int AddRestaurant(string name, string description, string category, string image, string rep)
+        {
+            DataSet myDS = new DataSet();
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "AddRestaurant";
+            objCommand.Parameters.AddWithValue("@RestaurantName", name);
+            objCommand.Parameters.AddWithValue("@Description", description);
+            objCommand.Parameters.AddWithValue("@Category", category);
+            objCommand.Parameters.AddWithValue("@Image", image);
+            objCommand.Parameters.AddWithValue("@Representative", rep);
+
+            // Execute stored procedure using DBConnect object and the SQLCommand object
+            int success = objDB.DoUpdateUsingCmdObj(objCommand);
+            return success;
         }
     }
 }

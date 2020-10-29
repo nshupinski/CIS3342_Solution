@@ -16,7 +16,8 @@ namespace Restaurant_Review
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session.Add("Username", "");
+            Session.Add("Usertype", "");
         }
 
         protected void btnLogin_Clicked(object sender, EventArgs e)

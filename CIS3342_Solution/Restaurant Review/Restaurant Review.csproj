@@ -73,6 +73,7 @@
     <Content Include="images\blurredBackground.jpg" />
     <Content Include="images\cleanHeaderPic.jpg" />
     <Content Include="images\tableBackground.jpg" />
+    <Content Include="images\wood.jpg" />
     <Content Include="Login.aspx" />
     <Content Include="MyReviews.aspx" />
     <Content Include="Restaurant_Page.aspx" />

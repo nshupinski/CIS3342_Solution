@@ -36,6 +36,25 @@
     background-size: auto;
 }
 
+#btnAddRestaurant {
+    display: block;
+    margin: 0 auto;
+    background-color: darkgrey;
+    color: black;
+}
+
+.woodBackground {
+    padding: 1em;
+    background-image: url("../images/wood.jpg");
+}
+
+#lblRestaurantError {
+    color: red;
+}
+#lblError {
+    color: red;
+}
+
 .gvBackground {
     background-color: grey;
     padding: 2em;
@@ -50,5 +69,18 @@
     border-bottom: 1px solid #DDDDDD;
     border-left: 1px solid #DDDDDD;
     border-right: 1px solid #DDDDDD;
-} 
+}
 
+.modal {
+    display: block;
+}
+
+.SuccessSubmitted {
+    font-size: x-large;
+}
+
+
+#txtComments {
+    width: 50%;
+    height: 50%;
+}

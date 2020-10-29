@@ -34,15 +34,35 @@
         <div class="gvBackground">
             <asp:GridView ID="gvMyReviews" runat="server" AutoGenerateColumns="False" OnRowCancelingEdit="gvMyReviews_RowCancelingEdit" OnRowEditing="gvMyReviews_RowEditing" OnRowUpdating="gvMyReviews_RowUpdating">
                 <Columns>
-                    <asp:BoundField DataField="Review_Id" HeaderText="Review ID" ReadOnly="True" />
-                    <asp:BoundField DataField="RestaurantName" HeaderText="Restaurant" ReadOnly="True" />
-                    <asp:BoundField DataField="FoodQuality" HeaderText="Food Rating" />
-                    <asp:BoundField DataField="Service" HeaderText="Service Rating" />
-                    <asp:BoundField DataField="Atmosphere" HeaderText="Atmosphere Rating" />
-                    <asp:BoundField DataField="PriceRating" HeaderText="Price Rating" />
-                    <asp:BoundField DataField="Comments" HeaderText="Comments" />
-                    <asp:CommandField ButtonType="Button" HeaderText="Edit Review" ShowEditButton="True" />
+                    <asp:BoundField DataField="Review_Id" HeaderText="Review ID" ReadOnly="True" >
+                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="RestaurantName" HeaderText="Restaurant" ReadOnly="True" >
+                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="FoodQuality" HeaderText="Food Rating" >
+                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="Service" HeaderText="Service Rating" >
+                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="Atmosphere" HeaderText="Atmosphere Rating" >
+                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="PriceRating" HeaderText="Price Rating" >
+                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="Comments" HeaderText="Comments" >
+                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:CommandField ButtonType="Button" HeaderText="Edit Review" ShowEditButton="True" >
+                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:CommandField>
+                    <asp:CommandField ButtonType="Button" HeaderText="Delete Review" ShowDeleteButton="True">
+                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:CommandField>
                 </Columns>
+                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:GridView>
         </div>
     </form>

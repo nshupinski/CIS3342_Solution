@@ -12,7 +12,8 @@ namespace Restaurant_Review
 {
     public partial class Restaurant_Page : System.Web.UI.Page
     {
-        public DataSet myDS;
+        DataSet myDS = new DataSet();
+        DataSet reviews = new DataSet();
         string restaurantName;
         DBProcedures procedure = new DBProcedures();
         Reservation newReservation = new Reservation();
@@ -35,15 +36,13 @@ namespace Restaurant_Review
 
                 // Get selected restaurant info from DB
                 Restaurant selectedRestaurant = new Restaurant();
-                selectedRestaurant.ID = (int)myDS.Tables[0].Rows[0]["Restaurant_Id"];
-                selectedRestaurant.Name = myDS.Tables[0].Rows[0]["RestaurantName"].ToString();
-                selectedRestaurant.Description = myDS.Tables[0].Rows[0]["Description"].ToString();
-                selectedRestaurant.Category = myDS.Tables[0].Rows[0]["Category"].ToString();
-                selectedRestaurant.Image = myDS.Tables[0].Rows[0]["Image"].ToString();
-                selectedRestaurant.Representative = myDS.Tables[0].Rows[0]["Representative"].ToString();
+                selectedRestaurant = GetRestaurantInfo(selectedRestaurant);
+
+                // Get reviews for selected restaurant
+                reviews = procedure.GetReviewsByRestaurantName(restaurantName);
 
                 // Set the datasource of the Repeater control and bind the data
-                gvReviews.DataSource = myDS;
+                gvReviews.DataSource = reviews;
                 gvReviews.DataBind();
 
                 displayRestaurantInfo(selectedRestaurant);
@@ -217,23 +216,44 @@ namespace Restaurant_Review
             double atmosphereAverage = 0;
             double priceAverage = 0;
 
-            for(int i=0; i<myDS.Tables[0].Rows.Count; i++)
+            if(reviews.Tables[0].Rows.Count == 0)
             {
-                foodAverage += Int32.Parse(myDS.Tables[0].Rows[i]["FoodQuality"].ToString());
-                serviceAverage += Int32.Parse(myDS.Tables[0].Rows[i]["Service"].ToString());
-                atmosphereAverage += Int32.Parse(myDS.Tables[0].Rows[i]["Atmosphere"].ToString());
-                priceAverage += Int32.Parse(myDS.Tables[0].Rows[i]["PriceRating"].ToString());
+                foodRating.InnerHtml = foodRating.InnerHtml + "No reviews yet";
+                serviceRating.InnerHtml = serviceRating.InnerHtml + "No reviews yet";
+                atmosphereRating.InnerHtml = atmosphereRating.InnerHtml + "No reviews yet";
+                priceRating.InnerHtml = priceRating.InnerHtml + "No reviews yet";
             }
+            else
+            {
+                for (int i = 0; i < reviews.Tables[0].Rows.Count; i++)
+                {
+                    foodAverage += Int32.Parse(reviews.Tables[0].Rows[i]["FoodQuality"].ToString());
+                    serviceAverage += Int32.Parse(reviews.Tables[0].Rows[i]["Service"].ToString());
+                    atmosphereAverage += Int32.Parse(reviews.Tables[0].Rows[i]["Atmosphere"].ToString());
+                    priceAverage += Int32.Parse(reviews.Tables[0].Rows[i]["PriceRating"].ToString());
+                }
 
-            foodAverage = Math.Round((foodAverage/myDS.Tables[0].Rows.Count), 2);
-            serviceAverage = Math.Round((serviceAverage / myDS.Tables[0].Rows.Count), 2);
-            atmosphereAverage = Math.Round((atmosphereAverage / myDS.Tables[0].Rows.Count), 2);
-            priceAverage = Math.Round((priceAverage / myDS.Tables[0].Rows.Count), 2);
+                foodAverage = Math.Round((foodAverage / reviews.Tables[0].Rows.Count), 2);
+                serviceAverage = Math.Round((serviceAverage / reviews.Tables[0].Rows.Count), 2);
+                atmosphereAverage = Math.Round((atmosphereAverage / reviews.Tables[0].Rows.Count), 2);
+                priceAverage = Math.Round((priceAverage / reviews.Tables[0].Rows.Count), 2);
 
-            foodRating.InnerHtml = foodRating.InnerHtml + foodAverage;
-            serviceRating.InnerHtml = serviceRating.InnerHtml + serviceAverage;
-            atmosphereRating.InnerHtml = atmosphereRating.InnerHtml + atmosphereAverage;
-            priceRating.InnerHtml = priceRating.InnerHtml + priceAverage;
+                foodRating.InnerHtml = foodRating.InnerHtml + foodAverage;
+                serviceRating.InnerHtml = serviceRating.InnerHtml + serviceAverage;
+                atmosphereRating.InnerHtml = atmosphereRating.InnerHtml + atmosphereAverage;
+                priceRating.InnerHtml = priceRating.InnerHtml + priceAverage;
+            }
+        }
+
+        public Restaurant GetRestaurantInfo(Restaurant selectedRestaurant)
+        {
+            selectedRestaurant.Name = myDS.Tables[0].Rows[0]["RestaurantName"].ToString();
+            selectedRestaurant.Description = myDS.Tables[0].Rows[0]["Description"].ToString();
+            selectedRestaurant.Category = myDS.Tables[0].Rows[0]["Category"].ToString();
+            selectedRestaurant.Image = myDS.Tables[0].Rows[0]["Image"].ToString();
+            selectedRestaurant.Representative = myDS.Tables[0].Rows[0]["Representative"].ToString();
+
+            return selectedRestaurant;
         }
     }
 }

@@ -12,23 +12,26 @@ namespace Restaurant_Review
 {
     public partial class Default : System.Web.UI.Page
     {
-        string restaurantName;
         public DataSet myDS;
         public DBProcedures procedures;
+        string usertype;
+        string username;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             procedures = new DBProcedures();
-            checkUsertype();
 
             // Display usertype
-            username_display.InnerHtml = Session["Username"].ToString();
+            username = Session["Username"].ToString();
+            username_display.InnerHtml = username;
+
+            usertype = Session["Usertype"].ToString();
+
+            checkUsertype();
 
             if (!IsPostBack)
             {
-                myDS = procedures.GetAllRestaurants();
-                gvRestaurants.DataSource = myDS;
-                gvRestaurants.DataBind();
+                refreshGridView();
             }
         }
 
@@ -58,12 +61,108 @@ namespace Restaurant_Review
 
         public void checkUsertype()
         {
-            string usertype = Session["Usertype"].ToString();
-
             if (usertype == "Reviewer")
             {
                 btnMyReviews.Style["visibility"] = "visible";
+                btnAddRestaurant.Visible = true;
             }
+            else if (usertype == "Representative")
+            {
+                btnAddRestaurant.Visible = true;
+            }
+        }
+
+        public void btnAddRestaurant_Clicked(object sender, EventArgs e)
+        {
+            if (usertype == "Reviewer")
+            {
+                restaurantModal.Visible = true;
+            }
+            else if (usertype == "Representative")
+            {
+                newRestaurantModal.Visible = true;
+            } 
+        }
+
+        // Modal Buttons For Reviewer
+        public void btnRestaurantSubmit_Clicked(object sender, EventArgs e)
+        {
+            // new review
+            string restName = restaurantName_input.Text;
+            int foodQ = Int32.Parse(ddlFoodQuality.SelectedValue);
+            int serviceQ = Int32.Parse(ddlServiceQuality.SelectedValue);
+            int atmosphereQ = Int32.Parse(ddlServiceQuality.SelectedValue);
+            int priceQ = Int32.Parse(ddlPriceQuality.SelectedValue);
+            string comment = txtComments.Text;
+
+            // new restaurant
+            string description = "";
+            string category = "";
+            string image = "https://www.bennettig.com/wordpress/wp-content/uploads/2018/07/square-placeholder.jpg";
+            string representative = "";
+
+            int success = procedures.AddRestaurant(restName, description, category, image, representative);
+
+            // validate new restaurant
+            if (!(success == -1))
+            {
+                int success2 = procedures.AddReview(username, restName, foodQ, serviceQ, atmosphereQ, priceQ, comment);
+
+                if(!(success2 == -1))
+                {
+                    lblRestaurantError.Text = "";
+                    lblRestaurantSubmitted.Text = "Thank you for adding a new restaurant to review!";
+                    refreshGridView();
+                }
+                else
+                {
+                    lblRestaurantError.Text = "There was an error adding your review to the new restaurant. Please try again.";
+                }
+            }
+            else
+            {
+                lblRestaurantError.Text = "There was an error creating the new restaurant. Please try again.";
+            }
+
+        }
+        public void btnRestaurantCancel_Clicked(object sender, EventArgs e)
+        {
+            restaurantModal.Visible = false;
+        }
+
+        // Modal Buttons For Representative
+        public void btnNewRestaurantSubmit_Clicked(object sender, EventArgs e)
+        {
+            string restName = txtAddName.Text;
+            string desc = txtAddDescription.Text;
+            string cat = txtAddCategory.Text;
+            string img = txtAddImage.Text;
+            string rep = username;
+
+            int success = procedures.AddRestaurant(restName, desc, cat, img, rep);
+
+            if (!(success == -1))
+            {
+                lblError.Text = "";
+                lblSuccess.Text = "You have successfully added a new restaurant!";
+                refreshGridView();
+            }
+            else
+            {
+                lblRestaurantError.Text = "There was an error adding your new restaurant. Please try again.";
+            }
+        }
+        public void btnNewRestaurantCancel_Clicked(object sender, EventArgs e)
+        {
+            newRestaurantModal.Visible = false;
+        }
+
+
+        public void refreshGridView()
+        {
+            myDS = procedures.GetAllRestaurants();
+            gvRestaurants.DataSource = myDS;
+            gvRestaurants.DataBind();
         }
     }
 }
