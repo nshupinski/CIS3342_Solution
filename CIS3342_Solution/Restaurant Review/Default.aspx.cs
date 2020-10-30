@@ -96,9 +96,9 @@ namespace Restaurant_Review
             string comment = txtComments.Text;
 
             // new restaurant
-            string description = "";
-            string category = "";
-            string image = "https://www.bennettig.com/wordpress/wp-content/uploads/2018/07/square-placeholder.jpg";
+            string description = txtDescInput.Text;
+            string category = txtCatInput.Text;
+            string image = txtImgInput.Text;
             string representative = "";
 
             int success = procedures.AddRestaurant(restName, description, category, image, representative);

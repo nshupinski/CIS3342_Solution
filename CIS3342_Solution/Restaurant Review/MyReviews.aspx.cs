@@ -76,5 +76,14 @@ namespace Restaurant_Review
             gvMyReviews.EditIndex = -1;
             ShowReviews();
         }
+
+        protected void gvMyReviews_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            GridViewRow row = gvMyReviews.Rows[e.RowIndex];
+            int reviewId = Int32.Parse(row.Cells[0].Text);
+
+            procedure.DeleteReviewById(reviewId);
+            ShowReviews();
+        }
     }
 }

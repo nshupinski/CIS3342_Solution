@@ -144,7 +144,6 @@ namespace Restaurant_Review
 
         public void UpdateReviewById(int reviewId, int foodRating, int serviceRating, int atmosphereRating, int priceRating, string comment)
         {
-            DataSet myDS = new DataSet();
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "UpdateReviewById";
@@ -161,7 +160,6 @@ namespace Restaurant_Review
 
         public int AddRestaurant(string name, string description, string category, string image, string rep)
         {
-            DataSet myDS = new DataSet();
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "AddRestaurant";
@@ -174,6 +172,32 @@ namespace Restaurant_Review
             // Execute stored procedure using DBConnect object and the SQLCommand object
             int success = objDB.DoUpdateUsingCmdObj(objCommand);
             return success;
+        }
+
+        public void DeleteReviewById(int reviewId)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "DeleteReviewById";
+            objCommand.Parameters.AddWithValue("@reviewId", reviewId);
+
+            // Execute stored procedure using DBConnect object and the SQLCommand object
+            objDB.DoUpdateUsingCmdObj(objCommand);
+        }
+
+        public void UpdateRestaurantByName(string name, string desc, string cat, string img, string rep)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "UpdateRestaurantByName";
+            objCommand.Parameters.AddWithValue("@RestaurantName", name);
+            objCommand.Parameters.AddWithValue("@Description", desc);
+            objCommand.Parameters.AddWithValue("@Category", cat);
+            objCommand.Parameters.AddWithValue("@Image", img);
+            objCommand.Parameters.AddWithValue("@Representative", rep);
+
+            // Execute stored procedure using DBConnect object and the SQLCommand object
+            objDB.DoUpdateUsingCmdObj(objCommand);
         }
     }
 }

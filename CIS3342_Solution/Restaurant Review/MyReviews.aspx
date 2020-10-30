@@ -32,7 +32,7 @@
 
     <form id="form1" runat="server">
         <div class="gvBackground">
-            <asp:GridView ID="gvMyReviews" runat="server" AutoGenerateColumns="False" OnRowCancelingEdit="gvMyReviews_RowCancelingEdit" OnRowEditing="gvMyReviews_RowEditing" OnRowUpdating="gvMyReviews_RowUpdating">
+            <asp:GridView ID="gvMyReviews" runat="server" AutoGenerateColumns="False" OnRowCancelingEdit="gvMyReviews_RowCancelingEdit" OnRowEditing="gvMyReviews_RowEditing" OnRowUpdating="gvMyReviews_RowUpdating" OnRowDeleting="gvMyReviews_RowDeleting">
                 <Columns>
                     <asp:BoundField DataField="Review_Id" HeaderText="Review ID" ReadOnly="True" >
                     <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />

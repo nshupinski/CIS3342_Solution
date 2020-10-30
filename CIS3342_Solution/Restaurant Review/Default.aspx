@@ -84,8 +84,20 @@
                             <p class="modal-card-title" id="restaurantModalTitle" runat="server">Add A New Restaurant Review</p>
                         </header>
                         <section class="modal-card-body">
+                            <section class="modal-card-body">
                             <asp:Label ID="lblRestaurantName" runat="server" Text="Restaurant Name"></asp:Label>
                             <p><asp:TextBox runat="server" id="restaurantName_input" class="input is-rounded is-one-third is-centered" type="text"></asp:TextBox></p>
+                            <br />
+                            <asp:Label ID="lblDesc" runat="server" Text="Description"></asp:Label>
+                            <p><asp:TextBox runat="server" id="txtDescInput" class="input is-rounded is-one-third is-centered" type="text"></asp:TextBox></p>
+                            <br />
+                            <asp:Label ID="lblCat" runat="server" Text="Category"></asp:Label>
+                            <p><asp:TextBox runat="server" id="txtCatInput" class="input is-rounded is-one-third is-centered" type="text"></asp:TextBox></p>
+                            <br />
+                            <asp:Label ID="lblImg" runat="server" Text="Image URL"></asp:Label>
+                            <p><asp:TextBox runat="server" id="txtImgInput" class="input is-rounded is-one-third is-centered" type="text"></asp:TextBox></p>
+                            <br /><br />
+                        </section>
                             <br /><br />
                             <asp:Label ID="lblFoodQuality" runat="server" Text="Food Quality"></asp:Label>
                             <asp:DropDownList ID="ddlFoodQuality" runat="server">

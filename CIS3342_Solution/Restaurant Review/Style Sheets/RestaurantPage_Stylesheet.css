@@ -21,6 +21,11 @@
     padding: 1em;
 }
 
+#btnClaimRestaurant {
+    margin: 0 auto;
+    display: block;
+}
+
 #restaurantImage {
     width: 85%;
     height: 75%;
@@ -49,8 +54,8 @@
 
 #gvReviews {
     margin-top: 1em;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #reservationModal {
@@ -85,3 +90,6 @@
     color: red;
 }
 
+#modalClaimed {
+    display: block;
+}

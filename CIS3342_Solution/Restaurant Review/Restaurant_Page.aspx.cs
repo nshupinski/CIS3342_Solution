@@ -15,15 +15,16 @@ namespace Restaurant_Review
         DataSet myDS = new DataSet();
         DataSet reviews = new DataSet();
         string restaurantName;
+        string representative;
         DBProcedures procedure = new DBProcedures();
         Reservation newReservation = new Reservation();
+        Restaurant selectedRestaurant = new Restaurant();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            checkUsertype();
-
             //Check Username
-            username_display.InnerHtml = Session["Username"].ToString();
+            representative = Session["Username"].ToString();
+            username_display.InnerHtml = representative;
 
             restaurantName = Session["selectedRestaurant"].ToString();
             // Get Restaurant Name from HTTP QueryString
@@ -32,41 +33,26 @@ namespace Restaurant_Review
             // Get Restaurant info from DB
             if (!IsPostBack)
             {
-                myDS = procedure.GetRestaurantByName(restaurantName);
+                GetSelectedRestaurant();
+                
+                showReviews();
 
-                // Get selected restaurant info from DB
-                Restaurant selectedRestaurant = new Restaurant();
-                selectedRestaurant = GetRestaurantInfo(selectedRestaurant);
-
-                // Get reviews for selected restaurant
-                reviews = procedure.GetReviewsByRestaurantName(restaurantName);
-
-                // Set the datasource of the Repeater control and bind the data
-                gvReviews.DataSource = reviews;
-                gvReviews.DataBind();
-
-                displayRestaurantInfo(selectedRestaurant);
-                displayReservationInfo(selectedRestaurant);
-                displayReviewInfo(selectedRestaurant);
                 showRestaurantRatings();
-            }  
+            }
         }
 
         private void displayRestaurantInfo(Restaurant rest)
         {
+            // restaurant info
             restaurantImage.Src = rest.Image;
             title.InnerHtml = rest.Name;
             rep.InnerHtml = rep.InnerHtml + rest.Representative;
             description.InnerHtml = rest.Description;
-        }
 
-        public void displayReservationInfo(Restaurant rest)
-        {
+            // reservation info
             modalTitle.InnerHtml = rest.Name;
-        }
 
-        public void displayReviewInfo(Restaurant rest)
-        {
+            // review info
             reviewModalTitle.InnerHtml = rest.Name;
         }
 
@@ -81,7 +67,7 @@ namespace Restaurant_Review
         }
 
         public void btnModalSubmit_Clicked(object sender, EventArgs e)
-        {            
+        {
             string phone = txtPhoneNumber.Text;
             int partySize = Int32.Parse(numPeople.SelectedValue);
 
@@ -95,7 +81,7 @@ namespace Restaurant_Review
 
                 int success = procedure.AddReservation(newReservation.ReservationName, newReservation.RestaurantName, newReservation.Time, newReservation.PhoneNumber, newReservation.PartySize);
 
-                if(!(success == -1))
+                if (!(success == -1))
                 {
                     lblReservationError.Text = "";
                     lblReservationSubmitted.Text = "Thank you for making a reservation at " + restaurantName + "!";
@@ -115,13 +101,13 @@ namespace Restaurant_Review
             int reservationTimeHour = 0;
             int reservationTimeMinute = 0;
 
-            if(validateReservationDateTime(reservationMonth, reservationDay, dayTime, reservationTimeHour, reservationTimeMinute))
+            if (validateReservationDateTime(reservationMonth, reservationDay, dayTime, reservationTimeHour, reservationTimeMinute))
             {
                 reservationTimeHour = Int32.Parse(txtTimeHour.Text);
                 reservationTimeMinute = Int32.Parse(txtTimeMinute.Text);
 
                 string dateTimeString = reservationMonth + "-" + reservationDay + "-" + DateTime.Now.Year + " " + reservationTimeHour + ":" + reservationTimeMinute + " " + dayTime;
-                DateTime newReservationDateTime = DateTime.ParseExact(dateTimeString, "M-d-yyyy H:mm tt", null);
+                DateTime newReservationDateTime = DateTime.ParseExact(dateTimeString, "M-d-yyyy h:mm tt", null);
 
                 newReservation.Time = newReservationDateTime;
             }
@@ -154,7 +140,7 @@ namespace Restaurant_Review
             }
         }
 
-        public void checkUsertype()
+        public void checkUsertype(string rep)
         {
             string usertype = Session["Usertype"].ToString();
 
@@ -162,6 +148,10 @@ namespace Restaurant_Review
             {
                 btnMyReviews.Style["visibility"] = "visible";
                 btnMakeReview.Style["visibility"] = "visible";
+            }
+            else if ( (usertype == "Representative") && (rep == "") )
+            {
+                btnClaimRestaurant.Visible = true;
             }
         }
 
@@ -196,6 +186,8 @@ namespace Restaurant_Review
                 {
                     lblReviewError.Text = "";
                     lblReviewSubmitted.Text = "Thank you for submitting a review for " + restaurantName + "!";
+                    gvReviews.DataBind();
+                    showReviews();
                 }
                 else
                 {
@@ -254,6 +246,42 @@ namespace Restaurant_Review
             selectedRestaurant.Representative = myDS.Tables[0].Rows[0]["Representative"].ToString();
 
             return selectedRestaurant;
+        }
+
+        public void showReviews()
+        {
+            // Get reviews for selected restaurant
+            reviews = procedure.GetReviewsByRestaurantName(restaurantName);
+
+            // Set the datasource of the Repeater control and bind the data
+            gvReviews.DataSource = reviews;
+            gvReviews.DataBind();
+        }
+
+        public void btnClaimRestaurant_Clicked(object sender, EventArgs e)
+        {
+            modalClaimed.Visible = true;
+            GetSelectedRestaurant();
+            selectedRestaurant.Representative = Session["Username"].ToString();
+
+            procedure.UpdateRestaurantByName(selectedRestaurant.Name, selectedRestaurant.Description, selectedRestaurant.Category, selectedRestaurant.Image, selectedRestaurant.Representative);
+
+            btnClaimRestaurant.Visible = false;
+            GetSelectedRestaurant();
+        }
+
+        public void btnClose_Clicked(object sender, EventArgs e)
+        {
+            modalClaimed.Visible = false;
+        }
+
+        public void GetSelectedRestaurant()
+        {
+            myDS = procedure.GetRestaurantByName(restaurantName);
+            selectedRestaurant = GetRestaurantInfo(selectedRestaurant);
+
+            checkUsertype(selectedRestaurant.Representative);
+            displayRestaurantInfo(selectedRestaurant);
         }
     }
 }
