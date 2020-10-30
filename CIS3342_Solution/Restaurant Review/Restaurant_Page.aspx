@@ -20,6 +20,7 @@
                 </a>
                   <p id="username_display" runat="server"></p>
                   <a id="btnMyReviews" runat="server" href="MyReviews.aspx" style="visibility: hidden"> My Reviews</a>
+                  <a id="btnMyRestaurants" runat="server" href="MyRestaurants.aspx" style="visibility: hidden"> My Restaurants</a>
             </div>
             <div class="navbar-end">
               <a class="navbar-item is-centered" onclick="logOut()" href="Login.aspx" runat="server">      

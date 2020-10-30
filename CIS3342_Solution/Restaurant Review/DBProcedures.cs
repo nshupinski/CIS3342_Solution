@@ -199,5 +199,46 @@ namespace Restaurant_Review
             // Execute stored procedure using DBConnect object and the SQLCommand object
             objDB.DoUpdateUsingCmdObj(objCommand);
         }
+
+        public DataSet GetRestaurantByUsername(string username)
+        {
+            DataSet myDS = new DataSet();
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "GetRestaurantByUsername";
+            objCommand.Parameters.AddWithValue("@representative", username);
+
+            // Execute stored procedure using DBConnect object and the SQLCommand object
+            myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+
+            return myDS;
+        }
+
+        public void DeleteRestaurantById(int restaurantId)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "DeleteRestaurantById";
+            objCommand.Parameters.AddWithValue("@restaurantId", restaurantId);
+
+            // Execute stored procedure using DBConnect object and the SQLCommand object
+            objDB.DoUpdateUsingCmdObj(objCommand);
+        }
+
+        public void UpdateRestaurantById(int id, string name, string desc, string cat, string img, string rep)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "UpdateRestaurantById";
+            objCommand.Parameters.AddWithValue("@RestaurantId", id);
+            objCommand.Parameters.AddWithValue("@RestaurantName", name);
+            objCommand.Parameters.AddWithValue("@Description", desc);
+            objCommand.Parameters.AddWithValue("@Category", cat);
+            objCommand.Parameters.AddWithValue("@Image", img);
+            objCommand.Parameters.AddWithValue("@Representative", rep);
+
+            // Execute stored procedure using DBConnect object and the SQLCommand object
+            objDB.DoUpdateUsingCmdObj(objCommand);
+        }
     }
 }

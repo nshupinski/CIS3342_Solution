@@ -20,6 +20,7 @@
                 </a>
                   <p id="username_display" runat="server"></p>
                   <a id="btnMyReviews" runat="server" href="MyReviews.aspx" style="visibility: hidden"> My Reviews</a>
+                  <a id="btnMyRestaurants" runat="server" href="MyRestaurants.aspx" style="visibility: hidden"> My Restaurants</a>
             </div>
             <div class="navbar-end">
               <a class="navbar-item is-centered" onclick="logOut()" href="Login.aspx" runat="server">      
@@ -51,6 +52,13 @@
                     <asp:Button ID="btnAddRestaurant" class="button" runat="server" Text="Add Restaurant" onclick="btnAddRestaurant_Clicked" Visible="false"/> 
                 </div>
                 <br />
+                <asp:ListBox ID="ddlFilter" SelectionMode="Multiple" runat="server">
+                                <asp:ListItem  value="1">1</asp:ListItem>
+                                <asp:ListItem  value="2">2</asp:ListItem>
+                                <asp:ListItem  value="3">3</asp:ListItem>
+                                <asp:ListItem  value="4">4</asp:ListItem>
+                                <asp:ListItem  value="5">5</asp:ListItem>
+                            </asp:ListBox>
                 <asp:GridView ID="gvRestaurants" runat="server" AutoGenerateColumns="False" HorizontalAlign="Center" BorderColor="Black" BorderStyle="Outset" BorderWidth="0.25em" CellPadding="3" OnSelectedIndexChanged="gvRestaurants_SelectedIndexChanged">
                     <Columns>
                         <asp:ImageField DataImageUrlField="Image" HeaderText="Image">

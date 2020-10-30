@@ -31,6 +31,15 @@ namespace Restaurant_Review {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor btnMyReviews;
         
         /// <summary>
+        /// btnMyRestaurants control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnMyRestaurants;
+        
+        /// <summary>
         /// form1 control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace Restaurant_Review {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAddRestaurant;
+        
+        /// <summary>
+        /// ddlFilter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox ddlFilter;
         
         /// <summary>
         /// gvRestaurants control.

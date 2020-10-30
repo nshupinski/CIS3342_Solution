@@ -75,10 +75,12 @@
     <Content Include="images\tableBackground.jpg" />
     <Content Include="images\wood.jpg" />
     <Content Include="Login.aspx" />
+    <Content Include="MyRestaurants.aspx" />
     <Content Include="MyReviews.aspx" />
     <Content Include="Restaurant_Page.aspx" />
     <Content Include="Style Sheets\Home Stylesheet.css" />
     <Content Include="Style Sheets\Login_Stylesheet.css" />
+    <Content Include="Style Sheets\MyRestaurants_Stylesheet.css" />
     <Content Include="Style Sheets\MyReviews_Stylesheet.css" />
     <Content Include="Style Sheets\RestaurantPage_Stylesheet.css" />
     <Content Include="Web.config" />
@@ -105,6 +107,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyRestaurants.aspx.cs">
+      <DependentUpon>MyRestaurants.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyRestaurants.aspx.designer.cs">
+      <DependentUpon>MyRestaurants.aspx</DependentUpon>
     </Compile>
     <Compile Include="MyReviews.aspx.cs">
       <DependentUpon>MyReviews.aspx</DependentUpon>

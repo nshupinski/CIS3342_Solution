@@ -1,0 +1,33 @@
+﻿body {
+    background-image: url("../images/blue-background.png");
+    min-height: 1000px;
+}
+
+#username_display {
+    margin: auto;
+}
+#btnMyRestaurants {
+    margin: auto;
+    color: white;
+    margin-left: 2em;
+    text-decoration: underline;
+}
+
+.gvBackground {
+    background-color: lightgrey;
+    padding: 2em;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2em;
+}
+
+#gvMyRestaurants {
+    color: black;
+}
+
+.gridline tr, .gridline td, .gridline th {
+    border-top: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    border-left: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+}

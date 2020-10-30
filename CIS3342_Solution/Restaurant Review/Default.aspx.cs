@@ -31,6 +31,9 @@ namespace Restaurant_Review
 
             if (!IsPostBack)
             {
+                /*MultiSelectDropDown1.Clear();
+                MultiSelectDropDown1.List.Items.Add(new System.Web.UI.WebControls.ListItem("Apple", "1"));
+                MultiSelectDropDown1.List.Items.Add(new System.Web.UI.WebControls.ListItem("Grapes", "2"));*/
                 refreshGridView();
             }
         }
@@ -69,6 +72,7 @@ namespace Restaurant_Review
             else if (usertype == "Representative")
             {
                 btnAddRestaurant.Visible = true;
+                btnMyRestaurants.Style["visibility"] = "visible";
             }
         }
 
@@ -101,7 +105,15 @@ namespace Restaurant_Review
             string image = txtImgInput.Text;
             string representative = "";
 
-            int success = procedures.AddRestaurant(restName, description, category, image, representative);
+            int success = -1;
+
+            if (restName == "" || comment == "" || description == "" || category == "" || image == "") {
+                lblRestaurantError.Text = "Please enter all of the information";
+            }
+            else
+            {
+                success = procedures.AddRestaurant(restName, description, category, image, representative);
+            }
 
             // validate new restaurant
             if (!(success == -1))
@@ -139,7 +151,16 @@ namespace Restaurant_Review
             string img = txtAddImage.Text;
             string rep = username;
 
-            int success = procedures.AddRestaurant(restName, desc, cat, img, rep);
+            int success = -1;
+
+            if (restName == "" || desc == "" || cat == "" || img == "")
+            {
+                lblError.Text = "Please enter all of the information";
+            }
+            else
+            {
+                success = procedures.AddRestaurant(restName, desc, cat, img, rep);
+            }
 
             if (!(success == -1))
             {

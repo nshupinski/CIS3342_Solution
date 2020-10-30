@@ -12,6 +12,12 @@
     margin-left: 2em;
     text-decoration: underline;
 }
+#btnMyRestaurants {
+    margin: auto;
+    color: white;
+    margin-left: 2em;
+    text-decoration: underline;
+}
 
 #mainSection {
     margin-top: 3em;

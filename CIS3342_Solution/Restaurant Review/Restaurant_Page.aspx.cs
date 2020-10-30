@@ -149,6 +149,10 @@ namespace Restaurant_Review
                 btnMyReviews.Style["visibility"] = "visible";
                 btnMakeReview.Style["visibility"] = "visible";
             }
+            else if (usertype == "Representative")
+            {
+                btnMyRestaurants.Style["visibility"] = "visible";
+            }
             else if ( (usertype == "Representative") && (rep == "") )
             {
                 btnClaimRestaurant.Visible = true;
