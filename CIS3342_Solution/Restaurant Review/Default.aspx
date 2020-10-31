@@ -52,13 +52,11 @@
                     <asp:Button ID="btnAddRestaurant" class="button" runat="server" Text="Add Restaurant" onclick="btnAddRestaurant_Clicked" Visible="false"/> 
                 </div>
                 <br />
-                <asp:ListBox ID="ddlFilter" SelectionMode="Multiple" runat="server">
-                                <asp:ListItem  value="1">1</asp:ListItem>
-                                <asp:ListItem  value="2">2</asp:ListItem>
-                                <asp:ListItem  value="3">3</asp:ListItem>
-                                <asp:ListItem  value="4">4</asp:ListItem>
-                                <asp:ListItem  value="5">5</asp:ListItem>
-                            </asp:ListBox>
+                <!--Filter Section-->
+                <asp:Button ID="btnFilterShow" class="button" runat="server" Text="Filter Restaurants" onclick="btnFilterShow_Clicked"/> 
+                <asp:CheckBoxList ID="cbFilter" runat="server" Visible="false"></asp:CheckBoxList>
+                <asp:Button ID="btnFilter" class="button" runat="server" Text="Filter" onclick="btnFilter_Clicked" Visible="false"/> 
+
                 <asp:GridView ID="gvRestaurants" runat="server" AutoGenerateColumns="False" HorizontalAlign="Center" BorderColor="Black" BorderStyle="Outset" BorderWidth="0.25em" CellPadding="3" OnSelectedIndexChanged="gvRestaurants_SelectedIndexChanged">
                     <Columns>
                         <asp:ImageField DataImageUrlField="Image" HeaderText="Image">

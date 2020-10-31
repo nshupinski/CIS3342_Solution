@@ -59,6 +59,39 @@
                 </Columns>
                 <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:GridView>
+            <br />
+
+            <br />
+            <asp:GridView ID="gvMyReservations" runat="server" AutoGenerateColumns="False" OnRowCancelingEdit="gvMyReservations_RowCancelingEdit" OnRowEditing="gvMyReservations_RowEditing" OnRowUpdating="gvMyReservations_RowUpdating" OnRowDeleting="gvMyReservations_RowDeleting" OnSelectedIndexChanged="gvMyReservations_SelectedIndexChanged">
+                <Columns>
+                    <asp:BoundField DataField="Reservation_Id" HeaderText="Reservation ID" ReadOnly="True" >
+                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="RestaurantName" HeaderText="Restaurant" >
+                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="ReservationName" HeaderText="Reservation Name" >
+                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="30px" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="Time" HeaderText="Time" >
+                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="PhoneNumber" HeaderText="Phone Number" >
+                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="4em" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="NumberOfPeople" HeaderText="Party Size" >
+                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="4em" />
+                    </asp:BoundField>
+
+                    <asp:CommandField ButtonType="Button" HeaderText="Edit Review" ShowEditButton="True" >
+                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:CommandField>
+                    <asp:CommandField ButtonType="Button" HeaderText="Delete Review" ShowDeleteButton="True">
+                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:CommandField>
+                </Columns>
+                <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+            </asp:GridView>
         </div>
     </form>
 </body>

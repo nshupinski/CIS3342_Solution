@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -12,8 +13,9 @@ namespace Restaurant_Review
 {
     public partial class Default : System.Web.UI.Page
     {
-        public DataSet myDS;
-        public DBProcedures procedures;
+        DataSet myDS = new DataSet();
+        DataSet categories = new DataSet();
+        DBProcedures procedures;
         string usertype;
         string username;
 
@@ -31,10 +33,8 @@ namespace Restaurant_Review
 
             if (!IsPostBack)
             {
-                /*MultiSelectDropDown1.Clear();
-                MultiSelectDropDown1.List.Items.Add(new System.Web.UI.WebControls.ListItem("Apple", "1"));
-                MultiSelectDropDown1.List.Items.Add(new System.Web.UI.WebControls.ListItem("Grapes", "2"));*/
                 refreshGridView();
+                populateFilter();
             }
         }
 
@@ -178,10 +178,56 @@ namespace Restaurant_Review
             newRestaurantModal.Visible = false;
         }
 
-
         public void refreshGridView()
         {
             myDS = procedures.GetAllRestaurants();
+            gvRestaurants.DataSource = myDS;
+            gvRestaurants.DataBind();
+        }
+
+        public void populateFilter()
+        {
+            categories = procedures.GetAllCategories();
+
+            ArrayList categoryList = new ArrayList();
+
+            for (int i=0; i<categories.Tables[0].Rows.Count; i++) { 
+                if(!(categories.Tables[0].Rows[i]["Category"].ToString() == ""))
+                {
+                    categoryList.Add(categories.Tables[0].Rows[i]["Category"].ToString());
+                }           
+            }
+
+            cbFilter.DataSource = categoryList;
+            cbFilter.DataBind();
+        }
+
+        public void btnFilterShow_Clicked(object sender, EventArgs e)
+        {
+            if(cbFilter.Visible == true)
+            {
+                cbFilter.Visible = false;
+                btnFilter.Visible = false;
+            }
+            else
+            {
+                cbFilter.Visible = true;
+                btnFilter.Visible = true;
+            }
+        }
+
+        public void btnFilter_Clicked(object sender, EventArgs e)
+        {
+            myDS.Clear();
+
+            for(int i=0; i<cbFilter.Items.Count; i++)
+            {
+                if (cbFilter.Items[i].Selected)
+                {
+                    DataSet newDS = procedures.GetRestaurantByCategory(cbFilter.Items[i].Text);
+                    myDS.Merge(newDS);
+                }
+            }
             gvRestaurants.DataSource = myDS;
             gvRestaurants.DataBind();
         }

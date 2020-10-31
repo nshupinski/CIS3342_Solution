@@ -54,6 +54,11 @@
     background-image: url("../images/wood.jpg");
 }
 
+#ddlFilter {
+    display: block;
+    margin: 0 auto;
+}
+
 #lblRestaurantError {
     color: red;
 }

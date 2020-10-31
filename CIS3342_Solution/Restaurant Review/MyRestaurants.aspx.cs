@@ -12,6 +12,7 @@ namespace Restaurant_Review
     {
         string username;
         DataSet myDS = new DataSet();
+        DataSet mainDS = new DataSet();
         DBProcedures procedure = new DBProcedures();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -25,6 +26,7 @@ namespace Restaurant_Review
             if (!IsPostBack)
             {
                 ShowRestaurants();
+                ShowReservations();
             }
         }
 
@@ -40,7 +42,22 @@ namespace Restaurant_Review
             gvMyRestaurants.DataSource = myDS;
             gvMyRestaurants.DataBind();
         }
+        public void ShowReservations()
+        {
+            DataSet newDS = new DataSet();
 
+            myDS = procedure.GetRestaurantByUsername(username);
+            for (int i=0; i<myDS.Tables[0].Rows.Count; i++)
+            {
+                newDS = procedure.GetReservationsByRestaurant(myDS.Tables[0].Rows[i]["RestaurantName"].ToString());
+                mainDS.Merge(newDS);
+            }
+
+            gvMyReservations.DataSource = mainDS;
+            gvMyReservations.DataBind();
+        }
+
+        // Restaurant Gridview
         protected void gvMyRestaurants_RowEditing(object sender, GridViewEditEventArgs e)
         {
             // Set the row to edit-mode in the GridView
@@ -80,9 +97,55 @@ namespace Restaurant_Review
         }
 
 
+        // Reservation Gridview
+        protected void gvMyReservations_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            gvMyReservations.EditIndex = -1;
+            ShowReservations();
+        }
+
+        protected void gvMyReservations_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            GridViewRow row = gvMyReservations.Rows[e.RowIndex];
+            int reservationId = Int32.Parse(row.Cells[0].Text);
+
+            procedure.DeleteReservationById(reservationId);
+            ShowReservations();
+        }
+
+        protected void gvMyReservations_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            gvMyReservations.EditIndex = -1;
+
+            //ShowReservations();
+        }
+
+        protected void gvMyReservations_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+            int reservationId = Int32.Parse(gvMyReservations.Rows[rowIndex].Cells[0].Text);
+            string restaurantName = ((TextBox)gvMyReservations.Rows[rowIndex].Cells[1].Controls[0]).Text;
+            string reservationName = ((TextBox)gvMyReservations.Rows[rowIndex].Cells[2].Controls[0]).Text;
+            string time = ((TextBox)gvMyReservations.Rows[rowIndex].Cells[3].Controls[0]).Text;
+            string phoneNumber = ((TextBox)gvMyReservations.Rows[rowIndex].Cells[4].Controls[0]).Text;
+            int partySize = Int32.Parse(gvMyReservations.Rows[rowIndex].Cells[5].Text);
+
+            procedure.UpdateReservationById(reservationId, restaurantName, reservationName, time, phoneNumber, partySize);
+
+            gvMyRestaurants.EditIndex = -1;
+            ShowReservations();
+        }
 
 
 
+
+
+
+
+        protected void gvMyReservations_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
 
         protected void gvMyRestaurants_SelectedIndexChanged(object sender, EventArgs e)
         {

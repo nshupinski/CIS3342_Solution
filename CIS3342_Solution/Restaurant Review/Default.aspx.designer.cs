@@ -58,13 +58,31 @@ namespace Restaurant_Review {
         protected global::System.Web.UI.WebControls.Button btnAddRestaurant;
         
         /// <summary>
-        /// ddlFilter control.
+        /// btnFilterShow control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox ddlFilter;
+        protected global::System.Web.UI.WebControls.Button btnFilterShow;
+        
+        /// <summary>
+        /// cbFilter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList cbFilter;
+        
+        /// <summary>
+        /// btnFilter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnFilter;
         
         /// <summary>
         /// gvRestaurants control.

@@ -25,6 +25,17 @@ namespace Restaurant_Review
             return myDS;
         }
 
+        public DataSet GetAllCategories()
+        {
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "GetAllCategories";
+
+            // Execute stored procedure using DBConnect object and the SQLCommand object
+            myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+
+            return myDS;
+        }
+
         public DataSet GetRestaurantByName(string restaurantName)
         {
             DataSet myDS = new DataSet();
@@ -32,6 +43,20 @@ namespace Restaurant_Review
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "GetRestaurantByName";
             objCommand.Parameters.AddWithValue("@restaurantName", restaurantName);
+
+            // Execute stored procedure using DBConnect object and the SQLCommand object
+            myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+
+            return myDS;
+        }
+
+        public DataSet GetRestaurantByCategory(string category)
+        {
+            DataSet myDS = new DataSet();
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "GetRestaurantByCategory";
+            objCommand.Parameters.AddWithValue("@category", category);
 
             // Execute stored procedure using DBConnect object and the SQLCommand object
             myDS = objDB.GetDataSetUsingCmdObj(objCommand);
@@ -200,6 +225,22 @@ namespace Restaurant_Review
             objDB.DoUpdateUsingCmdObj(objCommand);
         }
 
+        public void UpdateReservationById(int id, string rest, string name, string time, string phone, int size)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "UpdateRestaurantByName";
+            objCommand.Parameters.AddWithValue("@id", id);
+            objCommand.Parameters.AddWithValue("@rest", rest);
+            objCommand.Parameters.AddWithValue("@name", name);
+            objCommand.Parameters.AddWithValue("@time", time);
+            objCommand.Parameters.AddWithValue("@phone", phone);
+            objCommand.Parameters.AddWithValue("@size", size);
+
+            // Execute stored procedure using DBConnect object and the SQLCommand object
+            objDB.DoUpdateUsingCmdObj(objCommand);
+        }
+
         public DataSet GetRestaurantByUsername(string username)
         {
             DataSet myDS = new DataSet();
@@ -212,6 +253,17 @@ namespace Restaurant_Review
             myDS = objDB.GetDataSetUsingCmdObj(objCommand);
 
             return myDS;
+        }
+
+        public void DeleteReservationById(int reservationId)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "DeleteReservationById";
+            objCommand.Parameters.AddWithValue("@reservationId", reservationId);
+
+            // Execute stored procedure using DBConnect object and the SQLCommand object
+            objDB.DoUpdateUsingCmdObj(objCommand);
         }
 
         public void DeleteRestaurantById(int restaurantId)
@@ -239,6 +291,20 @@ namespace Restaurant_Review
 
             // Execute stored procedure using DBConnect object and the SQLCommand object
             objDB.DoUpdateUsingCmdObj(objCommand);
+        }
+
+        public DataSet GetReservationsByRestaurant(string rest)
+        {
+            DataSet myDS = new DataSet();
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "GetReservationsByRestaurant";
+            objCommand.Parameters.AddWithValue("@rest", rest);
+
+            // Execute stored procedure using DBConnect object and the SQLCommand object
+            myDS = objDB.GetDataSetUsingCmdObj(objCommand);
+
+            return myDS;
         }
     }
 }
