@@ -15,19 +15,25 @@ namespace Restaurant_Review
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            rbtn_usertypeReviewer.Checked = true;
         }
 
         protected void btnCreateAccount_Clicked(object sender, EventArgs e)
         {
             // Get usertype
-            if(rbtn_usertypeReviewer.Checked)
+            if(!(rbtn_usertypeReviewer.Checked || rbtn_usertypeRepresentative.Checked))
             {
-                newUser.UserType = rbtn_usertypeReviewer.Text;
+                lblErrors.Text = "Please select a user type";
             }
             else
             {
-                newUser.UserType = rbtn_usertypeRepresentative.Text;
+                if(rbtn_usertypeReviewer.Checked)
+                {
+                    newUser.UserType = rbtn_usertypeReviewer.Text;
+                }
+                else
+                {
+                    newUser.UserType = rbtn_usertypeRepresentative.Text;
+                }
             }
 
             // Validate

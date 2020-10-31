@@ -53,8 +53,11 @@ namespace Restaurant_Review
                 mainDS.Merge(newDS);
             }
 
-            gvMyReservations.DataSource = mainDS;
-            gvMyReservations.DataBind();
+            if(!(myDS.Tables[0].Rows.Count == 0))
+            {
+                gvMyReservations.DataSource = mainDS;
+                gvMyReservations.DataBind();
+            }
         }
 
         // Restaurant Gridview
